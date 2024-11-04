@@ -21,6 +21,8 @@ If a user is logged in, they should be able to access any past puzzle scores or 
 
 ## User Stories
 
+Group User Story. Tom generate a chess puzzle, solve it step by step, and eventually win.
+
 1. John wants to play a chess puzzle. He opens the chess puzzle player and clicks generate puzzle of the day. The chess puzzle of the day loads on screen. [Michelle’s Story]
 2. Tom and Tim argued about who is a better chess player, so they decided to compare their Rank point of Ranking system. [Jiaqi Ma’s Story]
 3. As Mary hears about this chess puzzle, she wants to create an account and log in to start a puzzle. [Chihana’s Story]
