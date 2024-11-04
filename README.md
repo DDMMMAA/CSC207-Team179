@@ -3,9 +3,13 @@
 ## Team Members
 
 Chihana Kashiwabara - unomaru
+
 Jiaqi Ma - DDMMMAA
+
 Michelle Bakman - 207moment
+
 John Ding - J0hnDing
+
 Yann ...
 
 ## Project Domain
