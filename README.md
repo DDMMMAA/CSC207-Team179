@@ -26,11 +26,3 @@ If a user is logged in, they should be able to access any past puzzle scores or 
 3. As Mary hears about this chess puzzle, she wants to create an account and log in to start a puzzle. [Chihana’s Story]
 4. Andy is learning chess, and his teacher use this program to measure Andy’s skill level, and to trend his improvement through a long period utilizing the ranking system. [Yann Chi's Story]
 5. Felix wants to see the possible moves he can make with one piece, so he click on that piece and the possible cells will be indicated. [John’s Story]
-
-## Project Starter Code
-
-Your team may choose to use this repo as starter code for your project. You could
-also use the lab 5 code — or start from an empty repo if your team prefers.
-
-If you choose to use one of the repositories we have provided, you can either make
-a fork of it or copy the subset of code you want into a completely new repository.
