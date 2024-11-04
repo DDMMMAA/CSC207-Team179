@@ -1,5 +1,15 @@
 # Chess Puzzles
 
+## Team Members
+
+Chihana Kashiwabara - unomaru
+Jiaqi Ma - DDMMMAA
+Michelle Bakman - 207moment
+John Ding - J0hnDing
+Yann ...
+
+## Project Domain
+
 The domain will be able to generate random chess puzzles with options for daily, random puzzles, or specifically themed puzzles.
 A user will be able to view their puzzle statistics or review past puzzles within the current session of the program.
 Users should have the option to log in or create an account [built into the lichess api].
