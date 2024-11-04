@@ -5,15 +5,11 @@ A user will be able to view their puzzle statistics or review past puzzles withi
 Users should have the option to log in or create an account [built into the lichess api].
 If a user is logged in, they should be able to access any past puzzle scores or game histories they’ve played on that account
 
-## Testing
+## User Stories
 
-The repo also includes an example of a use case interactor test, as well as
-an example of an end-to-end test which automates button clicks and inspects
-the contents of the actual views. This is something we discussed in the lectures
-about testing in CA but had not provided a code example of before. Note, one
-could also inspect the contents of the ViewModel objects instead when testing
-CA to make a similar test which would be less dependent on the details of the
-specific UI implementation.
+1. John wants to play a chess puzzle. He opens the chess puzzle player and clicks generate puzzle of the day. The chess puzzle of the day loads on screen. [Michelle’s Story]
+2. Tom and Tim argued about who is a better chess player, so they decided to compare their Rank point of Ranking system. [Jiaqi Ma’s Story]
+3. As Mary hears about this chess puzzle, she wants to create an account and log in to start a puzzle. [Chihana’s Story]
 
 ## Project Starter Code
 
