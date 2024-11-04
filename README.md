@@ -1,21 +1,9 @@
-# Note Application
+# Chess Puzzles
 
-This is a minimal example demonstrating usage of the
-password-protected user part of the API used in lab 5.
-
-You can find more information about the API endpoints in
-[the documentation](https://www.postman.com/cloudy-astronaut-813156/csc207-grade-apis-demo/documentation/fg3zkjm/5-password-protected-user).
-
-If your team is considering an application for which it would be convenient to
-store data in something like a database, you may find that the API calls demonstrated
-here will be useful in your project, as this will allow you to store
-an arbitrary JSON object associated with a username and password.
-
-In this application, a single note has a name (the "username" in terms of the API) and the note
-can be read by anyone who knows the name — but only edited by someone who
-knows the password for it.
-
-You can see the documentation in the various files for more information.
+The domain will be able to generate random chess puzzles with options for daily, random puzzles, or specifically themed puzzles.
+A user will be able to view their puzzle statistics or review past puzzles within the current session of the program.
+Users should have the option to log in or create an account [built into the lichess api].
+If a user is logged in, they should be able to access any past puzzle scores or game histories they’ve played on that account
 
 ## Testing
 
