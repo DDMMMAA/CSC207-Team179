@@ -10,7 +10,7 @@ Michelle Bakman - 207moment
 
 John Ding - J0hnDing
 
-Yann Chi - ...
+Yann Chi - YannChi22
 
 ## Project Domain
 
