@@ -31,6 +31,14 @@ public class User {
     }
 
     /**
+     * Return current rankPoint, last element of 'rankPointHistory'.
+     * @return current rankPoint, last element of 'rankPointHistory'
+     */
+    public int getCurrentRankPoint() {
+        return rankPointHistory.get(rankPointHistory.size() - 1);
+    }
+
+    /**
      * This method add latest rankPoint to the end of rankPointHistory.
      * @param rankPoint is the new rankPoint after one puzzle finished
      */
