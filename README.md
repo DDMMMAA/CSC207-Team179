@@ -17,7 +17,7 @@ Yann Chi - YannChi22
 The domain will be able to generate random chess puzzles with options for daily, random puzzles, or specifically themed puzzles.
 A user will be able to view their puzzle statistics or review past puzzles within the current session of the program.
 Users should have the option to log in or create an account [built into the lichess api].
-If a user is logged in, they should be able to access any past puzzle scores or game histories they’ve played on that account
+If a user is logged in, they should be able to access any past puzzle scores or game histories they’ve played on that account.
 
 ## User Stories
 
