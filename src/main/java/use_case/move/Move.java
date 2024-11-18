@@ -1,11 +1,9 @@
-package usecase;
+package use_case.move;
 
 public class Move {
-    private entity.Board board;
     private entity.Game game;
 
-    public Move(entity.Board board, entity.Game game) {
-        this.board = board;
+    public Move(entity.Game game) {
         this.game = game;
     }
 

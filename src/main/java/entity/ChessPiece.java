@@ -5,13 +5,12 @@ import java.util.ArrayList;
 
 public abstract class ChessPiece {
     private String color;
-    private int x;
-    private int y;
+    private List<Integer> position;
 
     public ChessPiece(String color, int x, int y) {
         this.color = color;
-        this.x = x;
-        this.y = y;
+        position.add(x);
+        position.add(y);
     }
 
     public abstract List<int[]> getValidMoves(Board board);
@@ -20,7 +19,7 @@ public abstract class ChessPiece {
         return color;
     }
 
-    public int[] getPosition() {
-        return new int[] {this.x, this.y};
+    public List<Integer> getPosition() {
+        return this.position;
     }
 }

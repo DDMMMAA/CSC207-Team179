@@ -10,8 +10,8 @@ public class Rook extends ChessPiece {
 
     public List<int[]> getValidMoves(Board board) {
         final List<int[]> validMoves = new ArrayList<>();
-        final int x = this.getPosition()[0];
-        final int y = this.getPosition()[1];
+        final int x = this.getPosition().get(0);
+        final int y = this.getPosition().get(1);
 
         for (int i = y - 1; i >= 02; i--) {
             validMoves.add(new int[] {x, i}); // Move upwards in the column
