@@ -1,11 +1,10 @@
 package entity;
 
-import java.util.List;
 import java.util.ArrayList;
 
 public abstract class ChessPiece {
     private String color;
-    private List<Integer> position;
+    private ArrayList<Integer> position;
 
     public ChessPiece(String color, int x, int y) {
         this.color = color;
@@ -13,13 +12,13 @@ public abstract class ChessPiece {
         position.add(y);
     }
 
-    public abstract List<int[]> getValidMoves(Board board);
+    public abstract ArrayList<int[]> getValidMoves(Board board);
 
     public String getColor() {
         return color;
     }
 
-    public List<Integer> getPosition() {
+    public ArrayList<Integer> getPosition() {
         return this.position;
     }
 }

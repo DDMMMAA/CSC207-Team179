@@ -1,15 +1,14 @@
 package entity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Rook extends ChessPiece {
     public Rook(String color, int x, int y) {
         super(color, x, y);
     }
 
-    public List<int[]> getValidMoves(Board board) {
-        final List<int[]> validMoves = new ArrayList<>();
+    public ArrayList<int[]> getValidMoves(Board board) {
+        final ArrayList<int[]> validMoves = new ArrayList<>();
         final int x = this.getPosition().get(0);
         final int y = this.getPosition().get(1);
 
