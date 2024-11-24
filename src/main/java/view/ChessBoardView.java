@@ -18,7 +18,7 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
 
     private final String viewName = "Chess Board";
     private final MoveViewModel moveViewModel;
-    private final MoveController moveController;
+    private MoveController moveController;
 
     public ChessBoardView(MoveViewModel moveViewModel, MoveController moveController) {
         this.moveViewModel = moveViewModel;
@@ -56,6 +56,10 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
             }
         }
 
+    }
+
+    public void setMoveController(MoveController moveController) {
+        this.moveController = moveController;
     }
 
     @Override
