@@ -1,15 +1,17 @@
 package view;
 
-import interface_adapter.move.MoveController;
-import interface_adapter.move.MoveViewModel;
-
-import javax.swing.*;
-import javax.swing.text.View;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import interface_adapter.move.MoveController;
+import interface_adapter.move.MoveViewModel;
 
 /**
  * The view of actual chess game.
@@ -33,6 +35,9 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 JButton button = new JButton();
+                final String string_row = String.valueOf(Math.abs(row - 7));
+                final String string_col = String.valueOf(col);
+                button.setActionCommand(string_col + "," + string_row);
 
                 // Set background color to alternate between black and white
                 if ((row + col) % 2 == 0) {
@@ -49,7 +54,7 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
                     button.setFont(new Font("Serif", Font.BOLD, 36));
                 }
 
-                button.setFocusPainted(false);
+                button.setFocusPainted(true);
                 button.addActionListener(this);
                 this.add(button);
 
@@ -64,7 +69,7 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        System.out.println(e.getActionCommand());
     }
 
     @Override
