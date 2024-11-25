@@ -8,4 +8,5 @@ import use_case.move.MoveDataAccessInterface;
  * related use case are 'daily Puzzle' & 'Move'
  */
 public class ChessDataAccessObject implements MoveDataAccessInterface, DailyPuzzleDataAccessInterface {
+
 }
