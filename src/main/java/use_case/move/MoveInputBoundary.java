@@ -8,5 +8,5 @@ public interface MoveInputBoundary {
      * Executes the move use case.
      * @param moveInputData the input data
      */
-    void handleClick(MoveInputdata moveInputData);
+    void execute(MoveInputdata moveInputData);
 }

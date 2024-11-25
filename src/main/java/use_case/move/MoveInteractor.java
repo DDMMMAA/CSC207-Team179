@@ -1,21 +1,25 @@
 package use_case.move;
 
+import entity.Game;
 /**
  * Move interactor who handles the business logic of move.
  */
 public class MoveInteractor implements MoveInputBoundary {
-    private entity.Game game;
+    private final MoveDataAccessInterface moveDataAccessObject;
+    private final MoveOutPutBoundary moveOutPutBoundary;
 
-    public MoveInteractor(entity.Game game) {
-        this.game = game;
+    public MoveInteractor(MoveDataAccessInterface moveDataAccessObject,
+                          MoveOutPutBoundary moveOutPutBoundary) {
+        this.moveDataAccessObject = moveDataAccessObject;
+        this.moveOutPutBoundary = moveOutPutBoundary;
     }
 
-    public boolean isvalidmove() {
-        // check if this move is valid
-    }
+//    private boolean isvalidmove() {
+//        // check if this move is valid
+//    }
 
     @Override
-    public void handleClick(MoveInputdata position) {
+    public void execute(MoveInputdata position) {
         // Starting point of this class
 
     }

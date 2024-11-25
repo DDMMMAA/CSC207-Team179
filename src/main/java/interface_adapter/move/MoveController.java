@@ -25,6 +25,6 @@ public class MoveController {
         position.add(xcord);
         position.add(ycord);
         final MoveInputdata moveInputdata = new MoveInputdata(position);
-        moveInteractor.handleClick(moveInputdata);
+        moveInteractor.execute(moveInputdata);
     }
 }
