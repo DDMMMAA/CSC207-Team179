@@ -2,6 +2,9 @@ package entity;
 
 import java.util.ArrayList;
 
+/**
+ * The abstract class of all chess piece.
+ */
 public abstract class ChessPiece {
     private String color;
     private ArrayList<Integer> position;
