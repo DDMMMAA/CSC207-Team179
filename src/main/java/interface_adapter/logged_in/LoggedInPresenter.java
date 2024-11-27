@@ -16,7 +16,7 @@ public class LoggedInPresenter {
         this.loggedInViewModel = loggedInViewModel;
     }
 
-    public void prepareLoggedInView(String username) {
+    public void prepareSuccessView(String username) {
         final LoggedInState state = loggedInViewModel.getState();
         state.setUsername(username);
         loggedInViewModel.setState(state);
