@@ -55,8 +55,14 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
                 // Add pieces to the board
                 final String[][] pieces = moveViewModel.getPieces();
                 if (pieces[row][col] != null) {
-                    button.setText(pieces[row][col]);
-                    button.setFont(new Font("Serif", Font.BOLD, fontSize));
+                    // Set highlighted background color associate with valid moves.
+                    if (pieces[row][col].equals("Valid")) {
+                        button.setBackground(Color.YELLOW);
+                    }
+                    else {
+                        button.setText(pieces[row][col]);
+                        button.setFont(new Font("Serif", Font.BOLD, fontSize));
+                    }
                 }
 
                 button.setFocusPainted(true);
