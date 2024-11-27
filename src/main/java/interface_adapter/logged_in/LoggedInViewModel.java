@@ -12,4 +12,8 @@ public class LoggedInViewModel extends ViewModel<LoggedInState> {
         setState(new LoggedInState());
     }
 
+    public String getUsername() {
+        return getState().getUsername();
+    }
+
 }
