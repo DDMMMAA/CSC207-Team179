@@ -5,12 +5,14 @@ import java.util.Map;
 
 import entity.User;
 import use_case.login.LoginUserDataAccessInterface;
+import use_case.showProfile.ShowProfileUserDataAccessInterface;
 import use_case.signup.SignupUserDataAccessInterface;
 
 /**
  * The DAO for user data.
  */
-public class UserDataAccessObject implements LoginUserDataAccessInterface, SignupUserDataAccessInterface {
+public class UserDataAccessObject implements LoginUserDataAccessInterface, SignupUserDataAccessInterface,
+        ShowProfileUserDataAccessInterface {
 
     private final Map<String, User> users = new HashMap<>();
     private String currentUser;

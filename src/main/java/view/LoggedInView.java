@@ -12,9 +12,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
-import interface_adapter.ViewManagerModel;
+import interface_adapter.login.LoginState;
+import interface_adapter.showProfile.ShowProfileController;
 
 /**
  * The View for when the user is logged into the program.
@@ -31,9 +33,13 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
     private final JTextField passwordInputField = new JTextField(15);
     private final JButton startChess;
+    private final JButton showProfile;
+    private final ShowProfileController showProfileController;
 
-    public LoggedInView(ViewManagerModel viewManagerModel, LoggedInViewModel loggedInViewModel) {
+    public LoggedInView(ViewManagerModel viewManagerModel, LoggedInViewModel loggedInViewModel,
+                        ShowProfileController showProfileController) {
         this.loggedInViewModel = loggedInViewModel;
+        this.showProfileController = showProfileController;
         this.loggedInViewModel.addPropertyChangeListener(this);
 
         final JLabel title = new JLabel("Logged In Screen");
@@ -49,8 +55,11 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         logOut = new JButton("Log Out");
         buttons.add(logOut);
 
+        showProfile = new JButton("Show Profile");
+
         startChess = new JButton("Start Chess Game");
         buttons.add(startChess);
+        buttons.add(showProfile);
 
         logOut.addActionListener(this);
 
@@ -61,6 +70,20 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
                     if (evt.getSource().equals(startChess)) {
                         viewManagerModel.setState("chessBoardView");
                         viewManagerModel.firePropertyChanged();
+                    }
+                }
+        );
+
+        showProfile.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(showProfile)) {
+                            final LoggedInState currentState = loggedInViewModel.getState();
+
+                            showProfileController.execute(
+                                    currentState.getUsername()
+                            );
+                        }
                     }
                 }
         );

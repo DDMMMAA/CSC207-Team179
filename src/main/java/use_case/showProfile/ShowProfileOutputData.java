@@ -1,22 +1,26 @@
 package use_case.showProfile;
 
-import java.util.ArrayList;
-
 /**
  * Output Data for the ShowProfile Use case.
  */
 public class ShowProfileOutputData {
 
-    private final ArrayList<Integer> rankPointHistory;
+    private final String username;
+    private final int rankPoint;
     private final boolean useCaseSucceeded;
 
-    public ShowProfileOutputData(ArrayList<Integer> rankPointHistory, boolean useCaseSucceeded) {
-        this.rankPointHistory = rankPointHistory;
+    public ShowProfileOutputData(String username, int rankPoint, boolean useCaseSucceeded) {
+        this.username = username;
+        this.rankPoint = rankPoint;
         this.useCaseSucceeded = useCaseSucceeded;
     }
 
-    public ArrayList<Integer> getRankPointHistory() {
-        return rankPointHistory;
+    public int getRankPoint() {
+        return rankPoint;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
 }
