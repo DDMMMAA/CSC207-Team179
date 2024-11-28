@@ -31,6 +31,7 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
     private final JTextField passwordInputField = new JTextField(15);
     private final JButton startChess;
+    private final JButton showProfile;
 
     public LoggedInView(ViewManagerModel viewManagerModel, LoggedInViewModel loggedInViewModel) {
         this.loggedInViewModel = loggedInViewModel;
@@ -49,8 +50,11 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         logOut = new JButton("Log Out");
         buttons.add(logOut);
 
+        showProfile = new JButton("Show Profile");
+
         startChess = new JButton("Start Chess Game");
         buttons.add(startChess);
+        buttons.add(showProfile);
 
         logOut.addActionListener(this);
 
