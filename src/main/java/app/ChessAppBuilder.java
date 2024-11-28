@@ -9,7 +9,7 @@ import interface_adapter.move.MoveController;
 import interface_adapter.move.MovePresenter;
 import interface_adapter.move.MoveViewModel;
 import use_case.move.MoveInteractor;
-import use_case.move.MoveOutPutBoundary;
+import use_case.move.MoveOutputBoundary;
 import view.ChessBoardView;
 
 /**
@@ -40,7 +40,7 @@ public class ChessAppBuilder {
      * @return this builder
      */
     public ChessAppBuilder addMoveUseCase() {
-        final MoveOutPutBoundary moveOutPutBoundary = new MovePresenter(moveViewModel, viewManagerModel);
+        final MoveOutputBoundary moveOutPutBoundary = new MovePresenter(moveViewModel, viewManagerModel);
         moveInteractor = new MoveInteractor(
                 chessDataAccessObject, moveOutPutBoundary);
 
