@@ -14,10 +14,10 @@ import view.SignupView;
 /**
  * This class contains the static factory function for creating the SignupView.
  */
-public final class SignupApp {
+public final class SignupUseCaseFactory {
 
     /** Prevent instantiation. */
-    private SignupApp() {
+    private SignupUseCaseFactory() {
 
     }
 
