@@ -11,6 +11,7 @@ import data_access.UserDataAccessObject;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.login.LoginViewModel;
+import interface_adapter.showProfile.ShowProfileViewModel;
 import interface_adapter.signup.SignupViewModel;
 import view.*;
 
@@ -38,15 +39,22 @@ public class Main_ck {
         final LoginViewModel loginViewModel = new LoginViewModel();
         final LoggedInViewModel loggedInViewModel = new LoggedInViewModel();
         final SignupViewModel signupViewModel = new SignupViewModel();
+        final ShowProfileViewModel showProfileViewModel = new ShowProfileViewModel();
 
         final UserDataAccessObject userDataAccessObject = new UserDataAccessObject();
-        final SignupView signupView = SignupApp.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject);
-        final LoginView loginView = LoginApp.create(viewManagerModel, loginViewModel, loggedInViewModel, userDataAccessObject);
-        final LoggedInView loggedInView = new LoggedInView(viewManagerModel, loggedInViewModel);
+        final SignupView signupView = SignupApp.create(viewManagerModel, loginViewModel,
+                signupViewModel, userDataAccessObject);
+        final LoginView loginView = LoginApp.create(viewManagerModel, loginViewModel,
+                loggedInViewModel, userDataAccessObject);
+        final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
+                showProfileViewModel, userDataAccessObject);
+        final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
+        //        final LoggedInView loggedInView = new LoggedInView(viewManagerModel, loggedInViewModel);
 
         views.add(signupView, signupView.getViewName());
         views.add(loginView, loginView.getViewName());
         views.add(loggedInView, loggedInView.getViewName());
+        views.add(profileView, profileView.getViewName());
 
         final CK_ChessAppBuilder chessAppBuilder = new CK_ChessAppBuilder();
         chessAppBuilder.addChessDAO(new ChessDataAccessObject())
