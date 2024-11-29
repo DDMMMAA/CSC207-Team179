@@ -1,6 +1,8 @@
 package app;
 
 import data_access.ChessDataAccessObject;
+import entity.Board;
+import entity.Game;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.move.MoveController;
 import interface_adapter.move.MovePresenter;
@@ -38,8 +40,10 @@ public class CK_ChessAppBuilder {
      */
     public CK_ChessAppBuilder addMoveUseCase() {
         final MoveOutputBoundary moveOutPutBoundary = new MovePresenter(moveViewModel, viewManagerModel);
+        Board board = new Board();
+        Game game = new Game(board, true);
         moveInteractor = new MoveInteractor(
-                chessDataAccessObject, moveOutPutBoundary);
+                chessDataAccessObject, moveOutPutBoundary, game);
 
         final MoveController moveController = new MoveController(moveInteractor);
         chessBoardView.setMoveController(moveController);
