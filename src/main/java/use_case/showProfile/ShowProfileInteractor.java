@@ -20,8 +20,8 @@ public class ShowProfileInteractor implements ShowProfileInputBoundary {
         // The following code only handle success use case call
         // Because I currently don't know what can cause this use case to fail
         final User user = userDataAccessObject.get(showProfileInputData.getUsername());
-        final ShowProfileOutputData showProfileOutputData = new ShowProfileOutputData(user.getRankPointHistory(),
-                true);
+        final ShowProfileOutputData showProfileOutputData =
+                new ShowProfileOutputData(showProfileInputData.getUsername(), user.getCurrentRankPoint(), true);
         showProfilePresenter.prepareSuccessView(showProfileOutputData);
     }
 }

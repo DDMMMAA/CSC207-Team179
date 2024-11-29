@@ -1,8 +1,8 @@
 package entity;
 
 public class Game {
-    private Board board;
-    private String currentPlayer;
+    private final Board board;
+    private final String currentPlayer;
     private boolean gameOver;
     private boolean whiteTurn; //if whiteturn is false, then its blacks turn
     private boolean selectMode; //if select mode is false, game is in movemode.
@@ -34,4 +34,31 @@ public class Game {
             return currentPlayer;
         }
     }
+
+    public ChessPiece getChesspiece_to_move() {
+        return chesspiece_to_move;
+    }
+
+    public void setChesspiece_to_move(ChessPiece chesspiece_to_move) {
+        this.chesspiece_to_move = chesspiece_to_move;
+    }
+
+    public void switchMode() {
+        if (selectMode) {
+            selectMode = false;
+        }
+        else {
+            selectMode = true;
+        }
+    }
+
+    public boolean getGameMode() {
+        return selectMode;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+
 }

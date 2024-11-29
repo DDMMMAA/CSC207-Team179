@@ -4,12 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import data_access.ChessDataAccessObject;
+import entity.Board;
+import entity.Game;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.move.MoveController;
 import interface_adapter.move.MovePresenter;
 import interface_adapter.move.MoveViewModel;
 import use_case.move.MoveInteractor;
-import use_case.move.MoveOutPutBoundary;
+import use_case.move.MoveOutputBoundary;
 import view.ChessBoardView;
 
 /**
@@ -40,9 +42,11 @@ public class ChessAppBuilder {
      * @return this builder
      */
     public ChessAppBuilder addMoveUseCase() {
-        final MoveOutPutBoundary moveOutPutBoundary = new MovePresenter(moveViewModel, viewManagerModel);
+        final MoveOutputBoundary moveOutPutBoundary = new MovePresenter(moveViewModel, viewManagerModel);
+        Board board = new Board();
+        Game game = new Game(board, true);
         moveInteractor = new MoveInteractor(
-                chessDataAccessObject, moveOutPutBoundary);
+                chessDataAccessObject, moveOutPutBoundary, game);
 
         final MoveController moveController = new MoveController(moveInteractor);
         chessBoardView.setMoveController(moveController);
