@@ -1,15 +1,13 @@
 package view;
 
 import data_access.ChessDataAccessObject;
-import entity.Board;
-import entity.Game;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.move.MoveController;
 import interface_adapter.move.MovePresenter;
 import interface_adapter.move.MoveViewModel;
 import use_case.move.MoveDataAccessInterface;
 import use_case.move.MoveInteractor;
-import use_case.move.MoveOutPutBoundary;
+import use_case.move.MoveOutputBoundary;
 
 import javax.swing.*;
 
@@ -25,7 +23,7 @@ public class ChessBoardViewTest {
         MoveDataAccessInterface moveDataAccessObject = new ChessDataAccessObject();
         MoveViewModel moveViewModel = new MoveViewModel();
         ViewManagerModel viewManagerModel = new ViewManagerModel();
-        MoveOutPutBoundary movePresenter = new MovePresenter(moveViewModel, viewManagerModel);
+        MoveOutputBoundary movePresenter = new MovePresenter(moveViewModel, viewManagerModel);
         MoveInteractor TestInteractor = new MoveInteractor(moveDataAccessObject, movePresenter);
         MoveController TestController = new MoveController(TestInteractor);
 

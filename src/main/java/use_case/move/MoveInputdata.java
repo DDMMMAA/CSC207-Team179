@@ -1,14 +1,18 @@
 package use_case.move;
-
-import java.util.ArrayList;
+import entity.Game;
 
 /**
  * Input data for move use case.
  */
 public class MoveInputdata {
-    private ArrayList<Integer> position;
+    private final int[] position;
 
-    public MoveInputdata(ArrayList<Integer> input) {
+    public MoveInputdata(int[] input) {
         this.position = input;
     }
+
+    public int[] getPosition() {
+        return position;
+    }
 }
+

@@ -1,13 +1,12 @@
 package interface_adapter.move;
 
-import java.util.ArrayList;
 
 import use_case.move.MoveInputBoundary;
 import use_case.move.MoveInputdata;
-
 /**
  * The controller for the Move Use Case.
  */
+
 public class MoveController {
     private final MoveInputBoundary moveInteractor;
 
@@ -21,9 +20,9 @@ public class MoveController {
      * @param ycord the horizontal coordinate form 0 to 7
      */
     public void onClick(Integer xcord, Integer ycord) {
-        final ArrayList<Integer> position = new ArrayList<>();
-        position.add(xcord);
-        position.add(ycord);
+        final int[] position = new int[2];
+        position[0] = xcord;
+        position[1] = ycord;
         final MoveInputdata moveInputdata = new MoveInputdata(position);
         moveInteractor.execute(moveInputdata);
     }
