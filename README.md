@@ -12,12 +12,32 @@ John Ding - J0hnDing
 
 Yann Chi - YannChi22
 
+## Table of content
+
+[Project Domain](https://github.com/DDMMMAA/CSC207-Team179#projectdomain)
+[Project Domain](https://github.com/DDMMMAA/CSC207-Team179#usecases)
+
+
 ## Project Domain
 
 The domain will be able to generate random chess puzzles with options for daily, random puzzles, or specifically themed puzzles.
 A user will be able to view their puzzle statistics or review past puzzles within the current session of the program.
 Users should have the option to log in or create an account [built into the lichess api].
 If a user is logged in, they should be able to access any past puzzle scores or game histories they’ve played on that account.
+
+## Instructions
+
+Clone ```main``` branch, then run ```MainChessAPP.java``` in ```src/main/java/app```
+
+## Use Cases
+
+### Signup & Login
+
+### Show Profile
+
+### Generate daily puzzle
+
+### Step by step move
 
 ## User Stories
 
