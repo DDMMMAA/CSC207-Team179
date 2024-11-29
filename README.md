@@ -15,6 +15,7 @@ Yann Chi - YannChi22
 ## Table of content
 
 [Project Domain](https://github.com/DDMMMAA/CSC207-Team179#projectdomain)
+
 [Project Domain](https://github.com/DDMMMAA/CSC207-Team179#usecases)
 
 
@@ -31,13 +32,28 @@ Clone ```main``` branch, then run ```MainChessAPP.java``` in ```src/main/java/ap
 
 ## Use Cases
 
+
+
+
 ### Signup & Login
+
+
+
 
 ### Show Profile
 
+
+
+
 ### Generate daily puzzle
 
+
+
+
 ### Step by step move
+
+
+
 
 ## User Stories
 
