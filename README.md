@@ -14,23 +14,28 @@ Yann Chi - YannChi22
 
 ## Table of content
 
-[Project Domain](https://github.com/DDMMMAA/CSC207-Team179#projectdomain)
++ [Project Domain](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#project-domain)
 
-[Instructions](https://github.com/DDMMMAA/CSC207-Team179#instructions)
++ [Instructions](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#instructions)
+    + [Signup & Login](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#signup--login)
+    + [Show Profile](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#show-profile)
+    + [Generate Daily Puzzle](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#generate-daily-puzzle)
+    + [Step by Step Move](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#generate-daily-puzzle)
++ [Use Cases](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#use-cases)
 
-[Use Cases](https://github.com/DDMMMAA/CSC207-Team179#usecases)
 
+## About this project
 
-## Project Domain
-
-The domain will be able to generate random chess puzzles with options for daily, random puzzles, or specifically themed puzzles.
+This app/project is able to generate random chess puzzles with options for daily, random puzzles, or specifically themed puzzles.
 A user will be able to view their puzzle statistics or review past puzzles within the current session of the program.
 Users should have the option to log in or create an account [built into the lichess api].
 If a user is logged in, they should be able to access any past puzzle scores or game histories they’ve played on that account.
 
-## Instructions
+## Installation
 
-Clone ```main``` branch, then run ```MainChessAPP.java``` in ```src/main/java/app```
+To Start: Clone ```main``` branch, then run ```MainChessAPP.java``` in ```src/main/java/app```
+
+To close: Left click ```X``` icon at top right.
 
 ## Use Cases
 
