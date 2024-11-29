@@ -6,11 +6,9 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
@@ -29,7 +27,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
     private final JButton logOut;
 
-    private final JTextField passwordInputField = new JTextField(15);
     private final JButton startChess;
 
     public LoggedInView(ViewManagerModel viewManagerModel, LoggedInViewModel loggedInViewModel) {
@@ -38,9 +35,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
         final JLabel title = new JLabel("Logged In Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        final LabelTextPanel passwordInfo = new LabelTextPanel(
-                new JLabel("Password"), passwordInputField);
 
         final JLabel usernameInfo = new JLabel("Currently logged in: ");
         username = new JLabel();
@@ -53,8 +47,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         buttons.add(startChess);
 
         logOut.addActionListener(this);
-
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         startChess.addActionListener(
                 evt -> {
@@ -69,7 +61,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         this.add(usernameInfo);
         this.add(username);
 
-        this.add(passwordInfo);
         this.add(passwordErrorField);
         this.add(buttons);
     }
