@@ -44,7 +44,11 @@ To close: Left click ```X``` icon at top right.
 
 ### Signup & Login
 
+This feature allows users to signup by creating username and password and login to the account created.
 
+To Signup: Enter username and password(two times) to be used for an account, and click ```Signup``` to confirm signup.
+
+To Login: Click ```Login``` to navigate to a login page, enter username and password for the account, and click ```Login``` to confirm login.
 
 
 ### Show Profile
