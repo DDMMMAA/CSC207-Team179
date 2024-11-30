@@ -16,6 +16,7 @@ import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.login.LoginState;
+import interface_adapter.query.QueryController;
 import interface_adapter.showProfile.ShowProfileController;
 
 /**
@@ -34,6 +35,7 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
     private final JTextField passwordInputField = new JTextField(15);
     private final JButton startChess;
     private final JButton showProfile;
+    private final JButton showRankHistory;
     private final ShowProfileController showProfileController;
 
     public LoggedInView(ViewManagerModel viewManagerModel, LoggedInViewModel loggedInViewModel,
@@ -55,11 +57,14 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         logOut = new JButton("Log Out");
         buttons.add(logOut);
 
+        showRankHistory = new JButton("Show Rank History");
+
         showProfile = new JButton("Show Profile");
 
         startChess = new JButton("Start Chess Game");
         buttons.add(startChess);
         buttons.add(showProfile);
+        buttons.add(showRankHistory);
 
         logOut.addActionListener(this);
 
@@ -87,6 +92,20 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
                     }
                 }
         );
+
+        showRankHistory.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(showRankHistory)) {
+                            final LoggedInState currentState = loggedInViewModel.getState();
+
+                            QueryController.execute(
+                                    currentState.getUsername()
+                            )
+                        }
+                    }
+                }
+        )
 
         this.add(title);
         this.add(usernameInfo);
