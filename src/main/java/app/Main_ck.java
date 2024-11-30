@@ -43,9 +43,9 @@ public class Main_ck {
 
         final UserDataAccessObject userDataAccessObject = new UserDataAccessObject();
 
-        final SignupView signupView = SignupApp.create(viewManagerModel, loginViewModel,
+        final SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel,
                 signupViewModel, userDataAccessObject);
-        final LoginView loginView = LoginApp.create(viewManagerModel, loginViewModel,
+        final LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel,
                 loggedInViewModel, userDataAccessObject);
         final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
                 showProfileViewModel, userDataAccessObject);
