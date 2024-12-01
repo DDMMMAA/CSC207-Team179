@@ -34,7 +34,7 @@ public class Main_ck {
         frame.add(views);
 
         final ViewManagerModel viewManagerModel = new ViewManagerModel();
-        final ViewManager viewManager = new ViewManager(views, cardLayout, viewManagerModel);
+        new ViewManager(views, cardLayout, viewManagerModel);
 
         final LoginViewModel loginViewModel = new LoginViewModel();
         final LoggedInViewModel loggedInViewModel = new LoggedInViewModel();
@@ -48,7 +48,7 @@ public class Main_ck {
         final LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel,
                 loggedInViewModel, userDataAccessObject);
         final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
-                showProfileViewModel, userDataAccessObject);
+                signupViewModel, showProfileViewModel, userDataAccessObject);
         final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
         //        final LoggedInView loggedInView = new LoggedInView(viewManagerModel, loggedInViewModel);
 
