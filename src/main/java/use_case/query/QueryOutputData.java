@@ -8,17 +8,17 @@ import java.util.ArrayList;
 public class QueryOutputData {
 
     private final String username;
-    private final ArrayList<Integer> RankHistory;
+    private final ArrayList<Integer> rankHistory;
     private final boolean useCaseSucceeded;
 
-    public QueryOutputData(String username, ArrayList<Integer> RankHistory, boolean useCaseSucceeded) {
+    public QueryOutputData(String username, ArrayList<Integer> rankHistory, boolean useCaseSucceeded) {
         this.username = username;
-        this.RankHistory = RankHistory;
+        this.rankHistory = rankHistory;
         this.useCaseSucceeded = useCaseSucceeded;
     }
 
-    public int getRankHistory() {
-        return RankHistory;
+    public ArrayList<Integer> getRankHistory() {
+        return rankHistory;
     }
 
     public String getUsername() {
