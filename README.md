@@ -58,15 +58,20 @@ To Login: Click ```Login``` to navigate to a login page, enter username and pass
 
 ### Show Profile
 
+User can view there profile (Contain User name and rank point currently) after login by click ```Show Profile``` after login.
+
+Note: New user's rank point is set to ```0``` 
+
 
 
 
 ### Generate daily puzzle
 
-
-
+// TODO
 
 ### Step by step move
+
+// TODO
 
 ## Usage Guide
 
