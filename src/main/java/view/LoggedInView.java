@@ -6,16 +6,14 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import interface_adapter.ViewManagerModel;
+import interface_adapter.logged_in.LoggedInController;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
-import interface_adapter.login.LoginState;
 import interface_adapter.showProfile.ShowProfileController;
 
 /**
@@ -25,28 +23,27 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
     private final String viewName = "logged in";
     private final LoggedInViewModel loggedInViewModel;
+    private final LoggedInController loggedInController;
     private final JLabel passwordErrorField = new JLabel();
 
     private final JLabel username;
 
     private final JButton logOut;
 
-    private final JTextField passwordInputField = new JTextField(15);
     private final JButton startChess;
     private final JButton showProfile;
     private final ShowProfileController showProfileController;
 
-    public LoggedInView(ViewManagerModel viewManagerModel, LoggedInViewModel loggedInViewModel,
+    public LoggedInView(ViewManagerModel viewManagerModel, LoggedInController loggedInController,
+                        LoggedInViewModel loggedInViewModel,
                         ShowProfileController showProfileController) {
+        this.loggedInController = loggedInController;
         this.loggedInViewModel = loggedInViewModel;
         this.showProfileController = showProfileController;
         this.loggedInViewModel.addPropertyChangeListener(this);
 
         final JLabel title = new JLabel("Logged In Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        final LabelTextPanel passwordInfo = new LabelTextPanel(
-                new JLabel("Password"), passwordInputField);
 
         final JLabel usernameInfo = new JLabel("Currently logged in: ");
         username = new JLabel();
@@ -56,14 +53,22 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         buttons.add(logOut);
 
         showProfile = new JButton("Show Profile");
+        buttons.add(showProfile);
 
         startChess = new JButton("Start Chess Game");
         buttons.add(startChess);
-        buttons.add(showProfile);
 
-        logOut.addActionListener(this);
+//        logOut.addActionListener(this);
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        logOut.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(logOut)) {
+                            loggedInController.switchToSignUpView();
+                        }
+                    }
+                }
+        );
 
         startChess.addActionListener(
                 evt -> {
@@ -92,7 +97,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         this.add(usernameInfo);
         this.add(username);
 
-        this.add(passwordInfo);
         this.add(passwordErrorField);
         this.add(buttons);
     }

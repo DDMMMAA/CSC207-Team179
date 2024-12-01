@@ -14,10 +14,10 @@ import view.LoginView;
 /**
  * This class contains the static factory function for creating the LoginView.
  */
-public final class LoginApp {
+public final class LoginUseCaseFactory {
 
     /** Prevent instantiation. */
-    private LoginApp() {
+    private LoginUseCaseFactory() {
 
     }
 
