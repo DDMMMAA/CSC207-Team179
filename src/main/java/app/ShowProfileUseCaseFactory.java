@@ -48,7 +48,8 @@ public final class ShowProfileUseCaseFactory {
                 createShowProfileUseCase(viewManagerModel, loggedInViewModel,
                         showProfileViewModel, userDataAccessObject);
 
-        final LoggedInController loggedInController = createLoggedInUseCase(viewManagerModel, loggedInViewModel, signupViewModel)
+        final LoggedInController loggedInController = createLoggedInUseCase(viewManagerModel, loggedInViewModel,
+                signupViewModel);
 
         return new LoggedInView(viewManagerModel, loggedInController, loggedInViewModel, showProfileController);
     }
