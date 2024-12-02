@@ -6,11 +6,12 @@ import entity.RankHistory;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import use_case.query.QueryDataAccessInterface;
 
 /**
  * The DAO for accessing user rank history stored in the database.
  */
-public class QueryDataAccessObject {
+public class QueryDataAccessObject implements QueryDataAccessInterface {
     @Override
     public RankHistory showRankHistory(String username) {
 

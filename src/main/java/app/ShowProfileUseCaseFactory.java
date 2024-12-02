@@ -18,12 +18,20 @@ import use_case.showProfile.ShowProfileInputBoundary;
 import use_case.showProfile.ShowProfileInteractor;
 import use_case.showProfile.ShowProfileOutputBoundary;
 import use_case.showProfile.ShowProfileUserDataAccessInterface;
+import interface_adapter.showProfile.ShowProfileController;
+import interface_adapter.showProfile.ShowProfilePresenter;
+import interface_adapter.showProfile.ShowProfileViewModel;
 import use_case.query.QueryDataAccessInterface;
 import use_case.query.QueryInputBoundary;
 import use_case.query.QueryInteractor;
 import use_case.query.QueryOutputBoundary;
-
+import use_case.showProfile.ShowProfileInputBoundary;
+import use_case.showProfile.ShowProfileInteractor;
+import use_case.showProfile.ShowProfileOutputBoundary;
+import use_case.showProfile.ShowProfileUserDataAccessInterface;
 import view.LoggedInView;
+
+import javax.management.Query;
 
 /**
  * This class contains the static factory function for creating the LoggedInView.
@@ -42,6 +50,7 @@ public final class ShowProfileUseCaseFactory {
      * @param loggedInViewModel    the loggedInViewModel to inject into the LoggedInView
      * @param signupViewModel      the signupViewModel
      * @param showProfileViewModel the showProfileViewModel
+     * @param showProfileViewModel fsf
      * @param userDataAccessObject the ChangePasswordUserDataAccessInterface to inject into the LoggedInView
      * @param queryViewModel       the QueryViewModel to inject into the LoggedInView
      * @param queryDataAccessObject the Query DataAccessObject

@@ -107,7 +107,7 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
                         if (evt.getSource().equals(showRankHistory)) {
                             final LoggedInState currentState = loggedInViewModel.getState();
 
-                            QueryController.execute(
+                            queryController.execute(
                                     currentState.getUsername()
                             );
                         }
