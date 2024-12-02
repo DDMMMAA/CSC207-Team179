@@ -18,7 +18,7 @@ import view.*;
 /**
  * Main that activates login page.
  */
-public class Main_ck {
+public class MainChessAPP {
 
     /**
      * The main method for starting the program with an external database used to persist user data.
@@ -57,7 +57,7 @@ public class Main_ck {
         views.add(loggedInView, loggedInView.getViewName());
         views.add(profileView, profileView.getViewName());
 
-        final CK_ChessAppBuilder chessAppBuilder = new CK_ChessAppBuilder();
+        final ChessAppBuilder chessAppBuilder = new ChessAppBuilder();
         chessAppBuilder.addChessDAO(new ChessDataAccessObject())
                 .addMoveView()
                 .addMoveUseCase();
