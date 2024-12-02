@@ -2,13 +2,17 @@ package entity;
 
 import java.util.ArrayList;
 
+
+/**
+ * Knight piece.
+ */
 public class Knight extends ChessPiece {
     public Knight(String color, int x, int y) {
         super(color, x, y);
     }
 
     /**
-     * Returns all possible moves for a bishop from the given position on an 8x8 chessboard.
+     * Returns all possible moves for a knight from the given position on an 8x8 chessboard.
      *
      * @return A list of int arrays, each representing a valid move [newX, newY].
      */

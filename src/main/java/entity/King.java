@@ -2,13 +2,17 @@ package entity;
 
 import java.util.ArrayList;
 
+
+/**
+ * King piece.
+ */
 public class King extends ChessPiece {
     public King(String color, int x, int y) {
         super(color, x, y);
     }
 
     /**
-     * Returns all possible moves for a bishop from the given position on an 8x8 chessboard.
+     * Returns all possible moves for a king from the given position on an 8x8 chessboard.
      *
      * @return A list of int arrays, each representing a valid move [newX, newY].
      */
@@ -22,5 +26,6 @@ public class King extends ChessPiece {
         validMoves.add(new int[]{x, y + 1});
         validMoves.removeIf(move -> move[0] < 0 || move[0] >= 8 || move[1] < 0 || move[1] >= 8);
         return validMoves;
+
     }
 }
