@@ -1,18 +1,13 @@
 package use_case.query;
 
 /**
- * Input Boundary for actions which are related to searching user.
+ * The Input Boundary for query use cases.
  */
 public interface QueryInputBoundary {
 
     /**
-     * Executes the search User use case.
-     * @param username the input data
+     * Executes the query use case.
+     * @param username the user .
      */
     void execute(String username);
-
-    /**
-     * Executes the switch to login view use case.
-     */
-    void switchToLoginView();
 }

@@ -2,12 +2,11 @@ package interface_adapter.query;
 
 import entity.RankHistory;
 import interface_adapter.ViewManagerModel;
-import use_case.query.QueryOutputBoundary;
 
 /**
  * The presenter for query viewing.
  */
-public class QueryPresenter implements QueryOutputBoundary {
+public class QueryPresenter {
 
     private final QueryViewModel queryViewModel;
     private final ViewManagerModel viewManagerModel;
