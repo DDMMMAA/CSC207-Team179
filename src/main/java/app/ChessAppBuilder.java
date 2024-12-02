@@ -1,8 +1,5 @@
 package app;
 
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
-
 import data_access.ChessDataAccessObject;
 import entity.Board;
 import entity.Game;
@@ -15,7 +12,7 @@ import use_case.move.MoveOutputBoundary;
 import view.ChessBoardView;
 
 /**
- * Builder for the Note Application.
+ * Builder for the Chess Application.
  */
 public class ChessAppBuilder {
     public static final int HEIGHT = 800;
@@ -64,17 +61,7 @@ public class ChessAppBuilder {
         return this;
     }
 
-    /**
-     * Builds the app.
-     * @return the JFrame for the app
-     */
-    public JFrame build() {
-        final JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setTitle("Chess App");
-        frame.setSize(WIDTH, HEIGHT);
-
-        frame.add(chessBoardView);
-        return frame;
+    public ChessBoardView buildChessBoardView() {
+        return chessBoardView;
     }
 }
