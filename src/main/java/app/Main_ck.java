@@ -51,7 +51,7 @@ public class Main_ck {
         final LoginView loginView = LoginApp.create(viewManagerModel, loginViewModel,
                 loggedInViewModel, userDataAccessObject);
         final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
-                showProfileViewModel, userDataAccessObject);
+                showProfileViewModel, queryViewModel, userDataAccessObject, queryDataAccessObject);
         final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
         //        final LoggedInView loggedInView = new LoggedInView(viewManagerModel, loggedInViewModel);
         final QueryView queryView = new QueryView(viewManagerModel, queryViewModel);
