@@ -1,8 +1,7 @@
 package interface_adapter.query;
 
+import entity.RankHistory;
 import interface_adapter.ViewModel;
-
-import java.util.ArrayList;
 
 /**
  * The View Model for the query view.
@@ -10,15 +9,12 @@ import java.util.ArrayList;
 public class QueryViewModel extends ViewModel<QueryState> {
 
     public QueryViewModel() {
-        super("Query");
+        super("query");
         setState(new QueryState());
     }
 
-    public String getUsername() {
-        return getState().getUsername();
+    public RankHistory getRankHistoryList() {
+        return getState().getRankHistoryList();
     }
 
-    public ArrayList<Integer> getRankHistory() {
-        return getState().getRankHistory();
-    }
 }

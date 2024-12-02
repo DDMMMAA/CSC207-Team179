@@ -1,10 +1,12 @@
 package interface_adapter.query;
 
+import entity.RankHistory;
 import interface_adapter.ViewManagerModel;
 import use_case.query.QueryOutputBoundary;
-import use_case.query.QueryOutputData;
-import view.ViewManager;
 
+/**
+ * The presenter for query viewing.
+ */
 public class QueryPresenter implements QueryOutputBoundary {
 
     private final QueryViewModel queryViewModel;
@@ -15,12 +17,16 @@ public class QueryPresenter implements QueryOutputBoundary {
         this.viewManagerModel = viewManagerModel;
     }
 
+    /**
+     * Prepares the success view for the query related Use Cases.
+     *
+     * @param rankHistoryList the user rank history data.
+     */
     @Override
-    public void prepareSuccessView(QueryOutputData outputData) {
-        // On success, switch to the Profile view.
-
+    public void prepareSuccessView(RankHistory rankHistoryList) {
+        // On success, switch to the Query view.
         final QueryState queryState = queryViewModel.getState();
-        queryState.setUsername(outputData.getUsername());
+        queryState.setRankHistoryList(rankHistoryList);
         this.queryViewModel.setState(queryState);
         this.queryViewModel.firePropertyChanged();
 
@@ -28,6 +34,11 @@ public class QueryPresenter implements QueryOutputBoundary {
         this.viewManagerModel.firePropertyChanged();
     }
 
+    /**
+     * Prepares the failure view for the query related Use Cases.
+     *
+     * @param errorMessage the explanation of the failure
+     */
     @Override
     public void prepareFailView(String errorMessage) {
 

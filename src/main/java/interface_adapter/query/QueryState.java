@@ -1,28 +1,22 @@
 package interface_adapter.query;
 
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.List;
+import entity.RankHistory;
 
 /**
- * The State information representing the logged-in user.
+ * The State information representing the query user.
  */
 public class QueryState {
-    private String username = "";
+    private RankHistory rankHistoryList;
 
     public QueryState() {
 
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setRankHistoryList(RankHistory rankHistoryList) {
+        this.rankHistoryList = rankHistoryList;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public ArrayList<Integer> getRankHistory() {
-        return rankHistory;
+    public RankHistory getRankHistoryList() {
+        return rankHistoryList;
     }
 }

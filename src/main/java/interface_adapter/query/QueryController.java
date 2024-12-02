@@ -1,27 +1,23 @@
 package interface_adapter.query;
 
 import use_case.query.QueryInputBoundary;
-import use_case.query.QueryInputData;
 
 /**
- * The controller for the ShowProfile use case.
+ * The controller for the query use case.
  */
 public class QueryController {
 
-    private final QueryInputBoundary QueryInputInteractor;
+    private final QueryInputBoundary queryInteractor;
 
-    public QueryController(QueryInputBoundary QueryInteractor) {
-        this.QueryInputInteractor = QueryInteractor;
+    public QueryController(QueryInputBoundary queryInteractor) {
+        this.queryInteractor = queryInteractor;
     }
 
     /**
-     * Execute the showProfile use case.
+     * Execute the query use case.
      * @param username the username of the user logging in
      */
     public void execute(String username) {
-        final QueryInputData queryInputData = new QueryInputData(username);
-
-        QueryInputInteractor.execute(queryInputData);
+        queryInteractor.execute(username);
     }
 }
-
