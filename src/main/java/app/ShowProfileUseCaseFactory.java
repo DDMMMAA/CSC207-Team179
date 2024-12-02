@@ -1,6 +1,8 @@
 package app;
 
 import interface_adapter.ViewManagerModel;
+import interface_adapter.logged_in.LoggedInController;
+import interface_adapter.logged_in.LoggedInPresenter;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.query.QueryController;
 import interface_adapter.query.QueryPresenter;
@@ -12,6 +14,7 @@ import use_case.query.QueryDataAccessInterface;
 import use_case.query.QueryInputBoundary;
 import use_case.query.QueryInteractor;
 import use_case.query.QueryOutputBoundary;
+
 import use_case.showProfile.ShowProfileInputBoundary;
 import use_case.showProfile.ShowProfileInteractor;
 import use_case.showProfile.ShowProfileOutputBoundary;
@@ -35,7 +38,8 @@ public final class ShowProfileUseCaseFactory {
      *
      * @param viewManagerModel     the ViewManagerModel to inject into the LoggedInView
      * @param loggedInViewModel    the loggedInViewModel to inject into the LoggedInView
-     * @param showProfileViewModel fsf
+     * @param signupViewModel
+     * @param showProfileViewModel
      * @param userDataAccessObject the ChangePasswordUserDataAccessInterface to inject into the LoggedInView
      * @param queryViewModel       the QueryViewModel to inject into the LoggedInView
      * @param queryDataAccessObject the Query DataAccessObject
@@ -44,6 +48,7 @@ public final class ShowProfileUseCaseFactory {
     public static LoggedInView create(
             ViewManagerModel viewManagerModel,
             LoggedInViewModel loggedInViewModel,
+            SignupViewModel signupViewModel,
             ShowProfileViewModel showProfileViewModel,
             QueryViewModel queryViewModel,
             ShowProfileUserDataAccessInterface userDataAccessObject,
@@ -53,12 +58,18 @@ public final class ShowProfileUseCaseFactory {
                 createShowProfileUseCase(viewManagerModel, loggedInViewModel,
                         showProfileViewModel, userDataAccessObject);
 
+
         final QueryOutputBoundary queryOutputBoundary = new QueryPresenter(queryViewModel, viewManagerModel);
         final QueryInputBoundary queryInputInteractor = new QueryInteractor(queryDataAccessObject, queryOutputBoundary);
         final QueryController queryController = new QueryController(queryInputInteractor);
 
         return new LoggedInView(viewManagerModel, loggedInViewModel, showProfileController, queryController);
 
+        final LoggedInController loggedInController = createLoggedInUseCase(viewManagerModel, loggedInViewModel,
+                signupViewModel);
+
+
+        return new LoggedInView(viewManagerModel, loggedInController, loggedInViewModel, showProfileController);
     }
 
     private static ShowProfileController createShowProfileUseCase(
@@ -74,5 +85,18 @@ public final class ShowProfileUseCaseFactory {
                 showProfileOutputBoundary);
 
         return new ShowProfileController(showProfileInputInteractor);
+    }
+
+    private static LoggedInController createLoggedInUseCase(
+            ViewManagerModel viewManagerModel,
+            LoggedInViewModel loggedInViewModel,
+            SignupViewModel signupViewModel){
+
+        final LoggedInOutputBoundary loggedInOutputBoundary = new LoggedInPresenter(viewManagerModel, loggedInViewModel,
+                signupViewModel);
+
+        final LoggedInInputBoundary loggedInInputBoundary = new LoggedInInteractor(loggedInOutputBoundary);
+
+        return new LoggedInController(loggedInInputBoundary);
     }
 }

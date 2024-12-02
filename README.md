@@ -33,34 +33,58 @@ If a user is logged in, they should be able to access any past puzzle scores or 
 
 ## Installation
 
-To Start: Clone ```main``` branch, then run ```MainChessAPP.java``` in ```src/main/java/app```
+To Start: Clone ```main``` branch into your favorite JAVA IDE, then run ```MainChessAPP.java``` in ```src/main/java/app```
+```
+git clone https://github.com/DDMMMAA/CSC207-Team179.git
+```
 
 To close: Left click ```X``` icon at top right.
 
-## Use Cases
+Note: No additional package needed
+
+## Use Cases (Features)
 
 
 
 
 ### Signup & Login
 
+This feature allows users to signup by creating username and password and login to the account created.
 
+To Signup: Enter username and password(two times) to be used for an account, and click ```Signup``` to confirm signup.
+
+To Login: Click ```Login``` to navigate to a login page, enter username and password for the account, and click ```Login``` to confirm login.
 
 
 ### Show Profile
+
+User can view there profile (Contain User name and rank point currently) after login by click ```Show Profile``` after login.
+
+Note: New user's rank point is set to ```0``` 
 
 
 
 
 ### Generate daily puzzle
 
-
-
+// TODO
 
 ### Step by step move
 
+// TODO
 
+## Usage Guide
 
+This meant to me used in order of ```Signup & Login``` &rarr; ```Generate daily puzzle``` &rarr; ```Step by step move```
+(Please refer to above ```use cases (Features)``` for detail of each use case)
+
+## Feedback
+
+Plead use github [Discussion board](https://github.com/DDMMMAA/CSC207-Team179/discussions) to submit your feedback.
+
+Simply start a new discussion with appropriate title (eg., associated use case).
+
+## This project is close for contributions
 
 ## User Stories
 

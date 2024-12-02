@@ -36,7 +36,7 @@ public class Main_ck {
         frame.add(views);
 
         final ViewManagerModel viewManagerModel = new ViewManagerModel();
-        final ViewManager viewManager = new ViewManager(views, cardLayout, viewManagerModel);
+        new ViewManager(views, cardLayout, viewManagerModel);
 
         final LoginViewModel loginViewModel = new LoginViewModel();
         final LoggedInViewModel loggedInViewModel = new LoggedInViewModel();
@@ -45,13 +45,15 @@ public class Main_ck {
         final QueryViewModel queryViewModel = new QueryViewModel();
 
         final UserDataAccessObject userDataAccessObject = new UserDataAccessObject();
+
         final QueryDataAccessObject queryDataAccessObject = new QueryDataAccessObject();
         final SignupView signupView = SignupApp.create(viewManagerModel, loginViewModel,
                 signupViewModel, userDataAccessObject);
-        final LoginView loginView = LoginApp.create(viewManagerModel, loginViewModel,
+        final LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel,
                 loggedInViewModel, userDataAccessObject);
         final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
                 showProfileViewModel, queryViewModel, userDataAccessObject, queryDataAccessObject);
+
         final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
         //        final LoggedInView loggedInView = new LoggedInView(viewManagerModel, loggedInViewModel);
         final QueryView queryView = new QueryView(viewManagerModel, queryViewModel);
