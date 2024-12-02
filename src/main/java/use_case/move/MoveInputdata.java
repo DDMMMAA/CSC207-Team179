@@ -8,7 +8,7 @@ public class MoveInputdata {
     private final int[] position;
 
     public MoveInputdata(int[] input) {
-        this.position = input;
+        this.position = new int[]{input[1], input[0]};
     }
 
     public int[] getPosition() {

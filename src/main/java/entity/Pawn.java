@@ -16,7 +16,16 @@ public class Pawn extends ChessPiece {
         final int x = this.getPosition()[0];
         final int y = this.getPosition()[1];
 
-        //still to be implemented...
+        if (this.getColor().equals("White") && x != 7) {
+            validMoves.add(new int[]{x + 1, y + 1});
+            validMoves.add(new int[]{x + 1, y - 1});
+            validMoves.add(new int[]{x + 1, y});
+        } else if (this.getColor().equals("Black") && x != 0) {
+            validMoves.add(new int[]{x - 1, y - 1});
+            validMoves.add(new int[]{x - 1, y });
+            validMoves.add(new int[]{x - 1, y + 1});
+        }
+        validMoves.removeIf(move -> move[0] < 0 || move[1] < 0 || move[0] > 7 || move[1] > 7);
 
         return validMoves;
     }
