@@ -1,67 +1,60 @@
 package data_access;
 
+import java.io.IOException;
+
+import entity.RankHistory;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import use_case.daily_puzzle.PuzzleAccessException;
 import use_case.query.QueryDataAccessInterface;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
+/**
+ * The DAO for accessing user rank history stored in the database.
+ */
 public class QueryDataAccessObject implements QueryDataAccessInterface {
-    private static final int SUCCESS_CODE = 200;
-    private static final String LICHESS_PUZZLE_URL = "https://lichess.org/api/puzzle/";
-    private static final String DAILY_PUZZLE_URL = "daily";
-    private static String PUZZLE_FROM_ID_URL;
+    @Override
+    public RankHistory showRankHistory(String username) {
 
-    public ArrayList<String> getDaily() throws PuzzleAccessException {
+        final RankHistory rankHistory = new RankHistory();
+
+        final String url = String.format("https://lichess.org/api/user/%s/rating-history", username);
         final OkHttpClient client = new OkHttpClient().newBuilder().build();
-        final Request request = new Request.Builder().url(LICHESS_PUZZLE_URL + DAILY_PUZZLE_URL).build();
-        ArrayList<String> output = null;
+        final Request request = new Request.Builder()
+                .url(url)
+                .build();
 
-     try {
-        final Response response = client.newCall(request).execute();
+        try (Response response = client.newCall(request).execute()) {
 
-        final JSONObject responseBody = new JSONObject(response.body().string());
+            final String responseBody = response.body().string();
+            final com.alibaba.fastjson.JSONArray jsonArray = com.alibaba.fastjson.JSONArray.parseArray(responseBody);
 
-        JSONObject puzzle = responseBody.getJSONObject("puzzle");
-        JSONArray solution = puzzle.getJSONArray("solution");
-        output.add(puzzle.getString("id"));
-        for (int i = 0; i < solution.length(); i++) {
-            output.add(solution.getString(i));
+            jsonArray.stream().forEach(str -> {
+                final com.alibaba.fastjson.JSONObject jsonObject =
+                        com.alibaba.fastjson.JSONObject.parseObject(str.toString());
+
+                final String name = (String) jsonObject.get("name");
+                if ("Puzzles".equals(name)) {
+                    final Object points = jsonObject.get("points");
+                    final com.alibaba.fastjson.JSONArray pointarr =
+                            com.alibaba.fastjson.JSONArray.parseArray(points.toString());
+
+                    final Object[] objects = pointarr.toArray();
+
+                    for (Object object : objects) {
+                        final com.alibaba.fastjson.JSONArray ranks =
+                                com.alibaba.fastjson.JSONArray.parseArray(object.toString());
+                        final int year = (Integer) ranks.get(0);
+                        final int month = (Integer) ranks.get(1);
+                        final int day = (Integer) ranks.get(2);
+                        final int rank = (Integer) ranks.get(3);
+                        rankHistory.addRankHistory(year, month, day, rank);
+                    }
+                }
+            });
+            return rankHistory;
+        }
+        catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
-        catch (final IOException | JSONException e) {
-        throw new PuzzleAccessException(e.getMessage());
-    }
-        return output;
-}
-
-@Override
-public ArrayList<String> fetchPuzzle(String id) throws PuzzleAccessException {
-    final OkHttpClient client = new OkHttpClient().newBuilder().build();
-    final Request request = new Request.Builder().url(LICHESS_PUZZLE_URL + PUZZLE_FROM_ID_URL).build();
-    ArrayList<String> output = null;
-
-    try {
-        final Response response = client.newCall(request).execute();
-
-        final JSONObject responseBody = new JSONObject(response.body().string());
-
-        JSONArray solution = responseBody.getJSONArray("solution");
-        output.add(responseBody.getJSONObject("game").getString("pgn"));
-        for (int i = 0; i < solution.length(); i++) {
-            output.add(solution.getString(i));
-        }
-    }
-    catch (final IOException | JSONException e) {
-        throw new PuzzleAccessException(e.getMessage());
-    }
-    return output;
-}
-}
 }
