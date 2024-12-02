@@ -8,11 +8,13 @@ import javax.swing.WindowConstants;
 
 import data_access.ChessDataAccessObject;
 import data_access.UserDataAccessObject;
+import data_access.QueryDataAccessObject;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.showProfile.ShowProfileViewModel;
 import interface_adapter.signup.SignupViewModel;
+import interface_adapter.query.QueryViewModel;
 import view.*;
 
 /**
@@ -40,8 +42,10 @@ public class Main_ck {
         final LoggedInViewModel loggedInViewModel = new LoggedInViewModel();
         final SignupViewModel signupViewModel = new SignupViewModel();
         final ShowProfileViewModel showProfileViewModel = new ShowProfileViewModel();
+        final QueryViewModel queryViewModel = new QueryViewModel();
 
         final UserDataAccessObject userDataAccessObject = new UserDataAccessObject();
+        final QueryDataAccessObject queryDataAccessObject = new QueryDataAccessObject();
         final SignupView signupView = SignupApp.create(viewManagerModel, loginViewModel,
                 signupViewModel, userDataAccessObject);
         final LoginView loginView = LoginApp.create(viewManagerModel, loginViewModel,
@@ -50,11 +54,13 @@ public class Main_ck {
                 showProfileViewModel, userDataAccessObject);
         final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
         //        final LoggedInView loggedInView = new LoggedInView(viewManagerModel, loggedInViewModel);
+        final QueryView queryView = new QueryView(viewManagerModel, queryViewModel);
 
         views.add(signupView, signupView.getViewName());
         views.add(loginView, loginView.getViewName());
         views.add(loggedInView, loggedInView.getViewName());
         views.add(profileView, profileView.getViewName());
+        views.add(queryView, queryView.getViewName());
 
         final CK_ChessAppBuilder chessAppBuilder = new CK_ChessAppBuilder();
         chessAppBuilder.addChessDAO(new ChessDataAccessObject())
