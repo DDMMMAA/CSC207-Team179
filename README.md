@@ -47,7 +47,7 @@ Note: No additional package needed
 
 
 
-### Signup & Login
+### <ins>Signup & Login</ins>
 
 This feature allows users to signup by creating username and password and login to the account created.
 
@@ -56,7 +56,7 @@ To Signup: Enter username and password(two times) to be used for an account, and
 To Login: Click ```Login``` to navigate to a login page, enter username and password for the account, and click ```Login``` to confirm login.
 
 
-### Show Profile
+### <ins>Show Profile</ins>
 
 User can view there profile (Contain User name and rank point currently) after login by click ```Show Profile``` after login.
 
@@ -65,11 +65,11 @@ Note: New user's rank point is set to ```0```
 
 
 
-### Generate daily puzzle
+### <ins>Generate daily puzzle</ins>
 
 // TODO
 
-### Step by step move
+### <ins>Step by step move</ins>
 
 // TODO
 
