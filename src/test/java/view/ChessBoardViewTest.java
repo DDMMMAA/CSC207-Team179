@@ -1,6 +1,8 @@
 package view;
 
 import data_access.ChessDataAccessObject;
+import entity.Board;
+import entity.Game;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.move.MoveController;
 import interface_adapter.move.MovePresenter;
@@ -24,7 +26,9 @@ public class ChessBoardViewTest {
         MoveViewModel moveViewModel = new MoveViewModel();
         ViewManagerModel viewManagerModel = new ViewManagerModel();
         MoveOutputBoundary movePresenter = new MovePresenter(moveViewModel, viewManagerModel);
-        MoveInteractor TestInteractor = new MoveInteractor(moveDataAccessObject, movePresenter);
+        Board board = new Board();
+        Game game = new Game(board, true);
+        MoveInteractor TestInteractor = new MoveInteractor(moveDataAccessObject, movePresenter, game);
         MoveController TestController = new MoveController(TestInteractor);
 
         ChessBoardView TestView = new ChessBoardView(TestModel, TestController);
