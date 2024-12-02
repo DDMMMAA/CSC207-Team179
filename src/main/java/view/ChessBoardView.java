@@ -46,10 +46,9 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
 
                 // Set background color to alternate between black and white
                 if ((row + col) % 2 == 0) {
-                    button.setBackground(Color.WHITE);
-                }
-                else {
-                    button.setBackground(Color.BLACK);
+                    button.setBackground(Color.GRAY);
+                } else {
+                    button.setBackground(Color.orange);
                 }
 
                 // Add pieces to the board
@@ -58,8 +57,7 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
                     // Set highlighted background color associate with valid moves.
                     if (pieces[row][col].equals("Valid")) {
                         button.setBackground(Color.YELLOW);
-                    }
-                    else {
+                    } else {
                         button.setText(pieces[row][col]);
                         button.setFont(new Font("Serif", Font.BOLD, fontSize));
                     }
@@ -81,10 +79,52 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
+        String[] parts = e.getActionCommand().split(",");  // Split the string at the comma
+        // Convert the parts to integers
+        int x = Integer.parseInt(parts[0]);
+        int y = Integer.parseInt(parts[1]);
+        moveController.onClick(x, y);
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        if ("pieces".equals(evt.getPropertyName())) {
+            // Retrieve the updated pieces array
+            String[][] updatedPieces = (String[][]) evt.getNewValue();
 
+            // Update the board
+            for (int row = 0; row < numRow; row++) {
+                for (int col = 0; col < numCol; col++) {
+                    // Find the button at this position
+                    JButton button = (JButton) this.getComponent(row * numCol + col);
+
+                    // Reset button background color
+                    if ((row + col) % 2 == 0) {
+                        button.setBackground(Color.GRAY);
+                    } else {
+                        button.setBackground(Color.orange);
+                    }
+
+                    // Update the button text and background based on the new pieces
+                    if (updatedPieces[row][col] != null) {
+                        if ("Valid".equals(updatedPieces[row][col])) {
+                            button.setBackground(Color.YELLOW); // Highlight valid move
+                            button.setText(""); // No text for "Valid" markers
+                        } else {
+                            button.setText(updatedPieces[row][col]); // Set piece text
+                            button.setFont(new Font("Serif", Font.BOLD, fontSize));
+                        }
+                    } else {
+                        button.setText(""); // Clear text if no piece
+                    }
+                }
+            }
+
+            // Refresh the UI
+            this.revalidate();
+            this.repaint();
+        }
     }
+
+
 }

@@ -1,6 +1,7 @@
 package use_case.move;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import entity.ChessPiece;
 import entity.Game;
@@ -39,6 +40,14 @@ public class MoveInteractor implements MoveInputBoundary {
         if (game.getGameMode()) {
             select(pos);
         }
+        else if (game.getBoard().getPiece(pos) != null) {
+            if (game.getBoard().getPiece(pos).getColor().equals(game.getChesspiece_to_move().getColor())) {
+                select(pos);
+            }
+            else {
+                move(pos);
+            }
+        }
         else {
             move(pos);
         }
@@ -60,22 +69,36 @@ public class MoveInteractor implements MoveInputBoundary {
             game.setChesspiece_to_move(piece);
             game.switchMode();
             final MoveOutputdata selectdata = new MoveOutputdata(validmoves(piece), game.getBoard());
-            moveOutPutBoundary.prepareSelect(selectdata);
+            moveOutPutBoundary.prepareMove(selectdata);
         }
     }
 
     private void move(int[] pos) {
         final ArrayList<int[]> validmoves = validmoves(game.getChesspiece_to_move());
-        if (validmoves.contains(pos)) {
+        if (containsArray(validmoves, pos)) {
             game.getBoard().moveToLocation(pos, game.getChesspiece_to_move()); //Move the chess piece to location
             final MoveOutputdata movedata = new MoveOutputdata(new ArrayList<>(), game.getBoard());
             moveOutPutBoundary.prepareMove(movedata);
+            game.switchMode();
         }
         else {
             // Do Nothing since nothing happend
             final MoveOutputdata nulldata = new MoveOutputdata(new ArrayList<>(), game.getBoard());
             moveOutPutBoundary.prepareMove(nulldata);
+            game.switchMode();
 
         }
+    }
+
+    public static boolean containsArray(ArrayList<int[]> list, int[] target) {
+        if (list == null || target == null) {
+            return false;
+        }
+        for (int[] array : list) {
+            if (Arrays.equals(array, target)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
