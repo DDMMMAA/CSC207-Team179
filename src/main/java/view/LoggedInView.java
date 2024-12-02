@@ -15,7 +15,6 @@ import javax.swing.JTextField;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
-import interface_adapter.login.LoginState;
 import interface_adapter.query.QueryController;
 import interface_adapter.showProfile.ShowProfileController;
 
@@ -39,7 +38,7 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
     private final ShowProfileController showProfileController;
 
     public LoggedInView(ViewManagerModel viewManagerModel, LoggedInViewModel loggedInViewModel,
-                        ShowProfileController showProfileController) {
+                        ShowProfileController showProfileController, QueryController queryController) {
         this.loggedInViewModel = loggedInViewModel;
         this.showProfileController = showProfileController;
         this.loggedInViewModel.addPropertyChangeListener(this);
@@ -101,11 +100,11 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
                             QueryController.execute(
                                     currentState.getUsername()
-                            )
+                            );
                         }
                     }
                 }
-        )
+        );
 
         this.add(title);
         this.add(usernameInfo);

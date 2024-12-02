@@ -5,10 +5,18 @@ import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.showProfile.ShowProfileController;
 import interface_adapter.showProfile.ShowProfilePresenter;
 import interface_adapter.showProfile.ShowProfileViewModel;
+import interface_adapter.query.QueryController;
+import interface_adapter.query.QueryPresenter;
+import interface_adapter.query.QueryViewModel;
 import use_case.showProfile.ShowProfileInputBoundary;
 import use_case.showProfile.ShowProfileInteractor;
 import use_case.showProfile.ShowProfileOutputBoundary;
 import use_case.showProfile.ShowProfileUserDataAccessInterface;
+import use_case.query.QueryDataAccessInterface;
+import use_case.query.QueryInputBoundary;
+import use_case.query.QueryInteractor;
+import use_case.query.QueryOutputBoundary;
+
 import view.LoggedInView;
 
 /**
@@ -28,19 +36,27 @@ public final class ShowProfileUseCaseFactory {
      * @param loggedInViewModel    the loggedInViewModel to inject into the LoggedInView
      * @param showProfileViewModel
      * @param userDataAccessObject the ChangePasswordUserDataAccessInterface to inject into the LoggedInView
+     * @param queryViewModel       the QueryViewModel to inject into the LoggedInView
+     * @param queryDataAccessObject the Query DataAccessObject
      * @return the LoggedInView created for the provided input classes
      */
     public static LoggedInView create(
             ViewManagerModel viewManagerModel,
             LoggedInViewModel loggedInViewModel,
             ShowProfileViewModel showProfileViewModel,
-            ShowProfileUserDataAccessInterface userDataAccessObject) {
+            QueryViewModel queryViewModel,
+            ShowProfileUserDataAccessInterface userDataAccessObject,
+            QueryDataAccessInterface queryDataAccessObject) {
 
         final ShowProfileController showProfileController =
                 createShowProfileUseCase(viewManagerModel, loggedInViewModel,
                         showProfileViewModel, userDataAccessObject);
 
-        return new LoggedInView(viewManagerModel, loggedInViewModel, showProfileController);
+        final QueryOutputBoundary queryOutputBoundary = new QueryPresenter(queryViewModel, viewManagerModel);
+        final QueryInputBoundary queryInputInteractor = new QueryInteractor(queryDataAccessObject, queryOutputBoundary);
+        final QueryController queryController = new QueryController(queryInputInteractor);
+
+        return new LoggedInView(viewManagerModel, loggedInViewModel, showProfileController, queryController);
 
     }
 
