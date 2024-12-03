@@ -58,8 +58,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         startChess = new JButton("Start Chess Game");
         buttons.add(startChess);
 
-//        logOut.addActionListener(this);
-
         logOut.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {

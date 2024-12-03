@@ -1,7 +1,7 @@
 package interface_adapter.move;
 
 //import chariot.model.MoveInfo;
-import chariot.util.Board;
+//import chariot.util.Board;
 import interface_adapter.ViewManagerModel;
 import use_case.move.MoveInputdata;
 import use_case.move.MoveOutputBoundary;
