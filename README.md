@@ -14,14 +14,17 @@ Yann Chi - YannChi22
 
 ## Table of content
 
-+ [Project Domain](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#project-domain)
-
-+ [Instructions](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#instructions)
++ [About This Project](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#about-this-project)
++ [Installation](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#installation)
++ [Use Case (Feature)](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#use-cases-features)
     + [Signup & Login](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#signup--login)
     + [Show Profile](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#show-profile)
     + [Generate Daily Puzzle](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#generate-daily-puzzle)
     + [Step by Step Move](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#generate-daily-puzzle)
-+ [Use Cases](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#use-cases)
++ [Usage Guide](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#usage-guide)
++ [Feedback](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#feedback)
++ [Contribute to this project](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#this-project-is-close-for-contributions)
++ [User Stories](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#user-stories)
 
 
 ## About this project
@@ -47,7 +50,7 @@ Note: No additional package needed
 
 
 
-### Signup & Login
+### <ins>Signup & Login</ins>
 
 This feature allows users to signup by creating username and password and login to the account created.
 
@@ -56,7 +59,7 @@ To Signup: Enter username and password(two times) to be used for an account, and
 To Login: Click ```Login``` to navigate to a login page, enter username and password for the account, and click ```Login``` to confirm login.
 
 
-### Show Profile
+### <ins>Show Profile</ins>
 
 User can view there profile (Contain User name and rank point currently) after login by click ```Show Profile``` after login.
 
@@ -65,11 +68,11 @@ Note: New user's rank point is set to ```0```
 
 
 
-### Generate daily puzzle
+### <ins>Generate daily puzzle</ins>
 
 // TODO
 
-### Step by step move
+### <ins>Step by step move</ins>
 
 // TODO
 

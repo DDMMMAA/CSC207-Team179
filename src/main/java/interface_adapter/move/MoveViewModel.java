@@ -13,7 +13,7 @@ public class MoveViewModel extends ViewModel<MoveState> {
     private final String[][] pieces = {
             {"♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"}, // Black major pieces
             {"♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟"}, // Black pawns
-            {null, null, null, null, null, null, null, "Valid"}, // Empty row with one Valid move
+            {null, null, null, null, null, null, null, null}, // Empty row with one Valid move
             {null, null, null, null, null, null, null, null}, // Empty row
             {null, null, null, null, null, null, null, null}, // Empty row
             {null, null, null, null, null, null, null, null}, // Empty row

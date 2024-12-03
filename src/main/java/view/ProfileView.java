@@ -25,6 +25,8 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
     private final JLabel username;
     private final JLabel currentRankPoint;
 
+    private final JButton back;
+
     public ProfileView(ViewManagerModel viewManagerModel, ShowProfileViewModel showProfileViewModel) {
         this.showProfileViewModel = showProfileViewModel;
         this.showProfileViewModel.addPropertyChangeListener(this);
@@ -40,11 +42,22 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         final JLabel rankPointInfo = new JLabel("Current rank point: ");
         currentRankPoint = new JLabel();
 
+        back = new JButton("Back");
+
+        back.addActionListener(
+                evt -> {
+                    if (evt.getSource().equals(back)) {
+                        System.out.println("back button clicked");
+                    }
+                }
+        );
+
         this.add(title);
         this.add(usernameInfo);
         this.add(username);
         this.add(rankPointInfo);
         this.add(currentRankPoint);
+        this.add(back);
     }
 
     /**
