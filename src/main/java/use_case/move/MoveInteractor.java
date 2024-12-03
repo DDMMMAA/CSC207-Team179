@@ -153,8 +153,8 @@ public class MoveInteractor implements MoveInputBoundary {
      */
     private void select(int[] position) {
         final ChessPiece piece = game.getBoard().getPiece(position);
-        if (piece == null || game.getCurrentPlayer() && game.getBoard().getPiece(position).getColor().equals("White")
-                || !game.getCurrentPlayer() && game.getBoard().getPiece(position).getColor().equals("Black")) {
+        if (piece == null || game.getCurrentPlayer() && game.getBoard().getPiece(position).getColor().equals("Black")
+                || !game.getCurrentPlayer() && game.getBoard().getPiece(position).getColor().equals("White")) {
             // Nothing happens since no piece selected
             final MoveOutputdata nulldata = new MoveOutputdata(new ArrayList<>(), game.getBoard());
             moveOutPutBoundary.prepareMove(nulldata);
