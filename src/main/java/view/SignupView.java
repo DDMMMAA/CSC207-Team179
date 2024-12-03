@@ -33,7 +33,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final SignupController signupController;
 
     private final JButton signUp;
-    private final JButton cancel;
     private final JButton toLogin;
 
     public SignupView(SignupController controller, SignupViewModel signupViewModel) {
@@ -57,8 +56,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         buttons.add(toLogin);
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         buttons.add(signUp);
-        cancel = new JButton(SignupViewModel.CANCEL_BUTTON_LABEL);
-        buttons.add(cancel);
 
         signUp.addActionListener(
                 new ActionListener() {
@@ -85,8 +82,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                     }
                 }
         );
-
-        cancel.addActionListener(this);
 
         addUsernameListener();
         addPasswordListener();
