@@ -1,6 +1,5 @@
 package interface_adapter.move;
 
-
 import use_case.move.MoveInputBoundary;
 import use_case.move.MoveInputdata;
 /**

@@ -2,7 +2,6 @@ package entity;
 
 public class Game {
     private final Board board;
-    private final String currentPlayer;
     private boolean gameOver;
     private boolean whiteTurn; //if whiteturn is false, then its blacks turn
     private boolean selectMode; //if select mode is false, game is in movemode.
@@ -10,7 +9,6 @@ public class Game {
 
     public Game(Board board, boolean whiteTurn) {
         this.board = board;
-        this.currentPlayer = null;
         this.gameOver = false;
         this.whiteTurn = whiteTurn;
         this.selectMode = true;
@@ -26,13 +24,8 @@ public class Game {
         }
     }
 
-    public String getCurrentPlayer() {
-        if (currentPlayer == null) {
-            return "No Player Selected";
-        }
-        else {
-            return currentPlayer;
-        }
+    public boolean getCurrentPlayer() {
+        return this.whiteTurn;
     }
 
     public ChessPiece getChesspiece_to_move() {

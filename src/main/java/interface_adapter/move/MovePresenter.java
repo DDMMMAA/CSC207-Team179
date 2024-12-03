@@ -56,7 +56,7 @@ public class MovePresenter implements MoveOutputBoundary {
                         if (input.getBoard().getPiece(new int[] {i, j}).getColor().equals("White")) {
                             pieces[7 - i][j] = "♕";
                         } else {
-                            pieces[7 - i][j] = "♕";
+                            pieces[7-i][j]= "♛";
                         }
                     }
                     else if (input.getBoard().getPiece(new int[] {i, j}) instanceof entity.King) {

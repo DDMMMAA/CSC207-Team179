@@ -16,7 +16,8 @@ public class King extends ChessPiece {
      *
      * @return A list of int arrays, each representing a valid move [newX, newY].
      */
-    public ArrayList<int[]> getValidMoves() {
+    @Override
+    public <T> T getValidMoves() {
         final ArrayList<int[]> validMoves = new ArrayList<>();
         final int x = this.getPosition()[0];
         final int y = this.getPosition()[1];
@@ -25,7 +26,7 @@ public class King extends ChessPiece {
         validMoves.add(new int[]{x, y - 1});
         validMoves.add(new int[]{x, y + 1});
         validMoves.removeIf(move -> move[0] < 0 || move[0] >= 8 || move[1] < 0 || move[1] >= 8);
-        return validMoves;
+        return (T) validMoves;
 
     }
 }

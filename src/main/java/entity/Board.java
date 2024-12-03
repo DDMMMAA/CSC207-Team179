@@ -8,40 +8,42 @@ import org.json.JSONObject;
 public class Board {
     private ChessPiece[][] grid;
 
+    @SuppressWarnings("checkstyle:MagicNumber")
     public Board() {
-        ChessPiece[][] grid = new ChessPiece[8][8];
+        final ChessPiece[][] chessGrid = new ChessPiece[8][8];
 
-        grid[0][0] = new Rook("White", 0, 0);
-        grid[0][1] = new Knight("White", 0, 1);
-        grid[0][2] = new Bishop("White", 0, 2);
-        grid[0][3] = new Queen("White", 0, 3);
-        grid[0][4] = new King("White", 0, 4);
-        grid[0][5] = new Bishop("White", 0, 5);
-        grid[0][6] = new Knight("White", 0, 6);
-        grid[0][7] = new Rook("White", 0, 7);
+        final String white = "White";
+        chessGrid[0][0] = new Rook(white, 0, 0);
+        chessGrid[0][1] = new Knight(white, 0, 1);
+        chessGrid[0][2] = new Bishop(white, 0, 2);
+        chessGrid[0][3] = new Queen(white, 0, 3);
+        chessGrid[0][4] = new King(white, 0, 4);
+        chessGrid[0][5] = new Bishop(white, 0, 5);
+        chessGrid[0][6] = new Knight(white, 0, 6);
+        chessGrid[0][7] = new Rook(white, 0, 7);
         for (int i = 0; i < 8; i++) {
-            grid[1][i] = new Pawn("White", 1, i);
+            chessGrid[1][i] = new Pawn(white, 1, i);
         }
 
-        grid[7][0] = new Rook("Black", 7, 0);
-        grid[7][1] = new Knight("Black", 7, 1);
-        grid[7][2] = new Bishop("Black", 7, 2);
-        grid[7][3] = new Queen("Black", 7, 3);
-        grid[7][4] = new King("Black", 7, 4);
-        grid[7][5] = new Bishop("Black", 7, 5);
-        grid[7][6] = new Knight("Black", 7, 6);
-        grid[7][7] = new Rook("Black", 7, 7);
+        final String black = "Black";
+        chessGrid[7][0] = new Rook(black, 7, 0);
+        chessGrid[7][1] = new Knight(black, 7, 1);
+        chessGrid[7][2] = new Bishop(black, 7, 2);
+        chessGrid[7][3] = new Queen(black, 7, 3);
+        chessGrid[7][4] = new King(black, 7, 4);
+        chessGrid[7][5] = new Bishop(black, 7, 5);
+        chessGrid[7][6] = new Knight(black, 7, 6);
+        chessGrid[7][7] = new Rook(black, 7, 7);
         for (int i = 0; i < 8; i++) {
-            grid[6][i] = new Pawn("Black", 6, i);
+            chessGrid[6][i] = new Pawn(black, 6, i);
         }
 
-// Set all empty squares to null
         for (int row = 2; row < 6; row++) {
             for (int col = 0; col < 8; col++) {
-                grid[row][col] = null;
+                chessGrid[row][col] = null;
             }
         }
-        this.grid = grid;
+        this.grid = chessGrid;
     }
 
     public Board(JSONObject boardFile) {
@@ -50,6 +52,7 @@ public class Board {
 
     /**
      * Returns if a tile is empty.
+     *
      * @param position position of piece
      * @return bool
      */
@@ -59,6 +62,7 @@ public class Board {
 
     /**
      * Returns the chess piece at a given tile.
+     *
      * @param position position of piece
      * @return Chesspiece
      */
@@ -66,11 +70,47 @@ public class Board {
         return grid[position[0]][position[1]];
     }
 
-
+    /**
+     * Moves a piece to the specified position on the board.
+     *
+     * @param position The new position (x, y) for the piece.
+     * @param piece The piece to move.
+     */
     public void moveToLocation(int[] position, ChessPiece piece) {
         grid[piece.getPosition()[0]][piece.getPosition()[1]] = null;
         piece.setPosition(position);
         grid[position[0]][position[1]] = piece;
     }
 
+    /**
+     * Checks if the game is over by determining if either king is missing.
+     *
+     * @return "None" if both kings are present, "Black" if the white king is missing,
+     *         "White" if the black king is missing.
+     */
+    public String over() {
+        boolean whiteKingPresent = false;
+        boolean blackKingPresent = false;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (grid[i][j] instanceof King) {
+                    if (grid[i][j].getColor().equals("White")) {
+                        whiteKingPresent = true;
+                    }
+                    else {
+                        blackKingPresent = true;
+                    }
+                }
+            }
+        }
+        if (whiteKingPresent && blackKingPresent) {
+            return "None";
+        }
+        else if (whiteKingPresent) {
+            return "Black";
+        }
+        else {
+            return "White";
+        }
+    }
 }
