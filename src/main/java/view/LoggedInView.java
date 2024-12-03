@@ -6,17 +6,14 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInController;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
-import interface_adapter.login.LoginState;
 import interface_adapter.query.QueryController;
 import interface_adapter.showProfile.ShowProfileController;
 
@@ -34,16 +31,16 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
     private final JButton logOut;
 
-    private final JTextField passwordInputField = new JTextField(15);
     private final JButton startChess;
     private final JButton showProfile;
     private final JButton showRankHistory;
     private final ShowProfileController showProfileController;
 
-    public LoggedInView(ViewManagerModel viewManagerModel, LoggedInController loggedInController,
-                        LoggedInViewModel loggedInViewModel,
-                        ShowProfileController showProfileController) {
+    public LoggedInView(ViewManagerModel viewManagerModel, LoggedInController loggedInController, LoggedInViewModel loggedInViewModel,
+                        ShowProfileController showProfileController, QueryController queryController) {
+
         this.loggedInController = loggedInController;
+
         this.loggedInViewModel = loggedInViewModel;
         this.showProfileController = showProfileController;
         this.loggedInViewModel.addPropertyChangeListener(this);
@@ -65,8 +62,12 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
         startChess = new JButton("Start Chess Game");
         buttons.add(startChess);
+
         buttons.add(showProfile);
         buttons.add(showRankHistory);
+
+
+//        logOut.addActionListener(this);
 
         logOut.addActionListener(
                 new ActionListener() {
@@ -119,7 +120,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         this.add(usernameInfo);
         this.add(username);
 
-        this.add(passwordInfo);
         this.add(passwordErrorField);
         this.add(buttons);
     }

@@ -12,15 +12,15 @@ import data_access.QueryDataAccessObject;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.login.LoginViewModel;
-import interface_adapter.query.QueryViewModel;
 import interface_adapter.showProfile.ShowProfileViewModel;
 import interface_adapter.signup.SignupViewModel;
+import interface_adapter.query.QueryViewModel;
 import view.*;
 
 /**
  * Main that activates login page.
  */
-public class MainChessAPP {
+public class Main_ck {
 
     /**
      * The main method for starting the program with an external database used to persist user data.
@@ -45,14 +45,15 @@ public class MainChessAPP {
         final QueryViewModel queryViewModel = new QueryViewModel();
 
         final UserDataAccessObject userDataAccessObject = new UserDataAccessObject();
+
         final QueryDataAccessObject queryDataAccessObject = new QueryDataAccessObject();
         final SignupView signupView = SignupApp.create(viewManagerModel, loginViewModel,
                 signupViewModel, userDataAccessObject);
         final LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel,
-                loggedInViewModel, userDataAccessObject, signupViewModel);
+                loggedInViewModel, userDataAccessObject);
         final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
-                signupViewModel, showProfileViewModel, userDataAccessObject);
                 showProfileViewModel, queryViewModel, userDataAccessObject, queryDataAccessObject);
+
         final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
         //        final LoggedInView loggedInView = new LoggedInView(viewManagerModel, loggedInViewModel);
         final QueryView queryView = new QueryView(viewManagerModel, queryViewModel);
@@ -63,7 +64,7 @@ public class MainChessAPP {
         views.add(profileView, profileView.getViewName());
         views.add(queryView, queryView.getViewName());
 
-        final ChessAppBuilder chessAppBuilder = new ChessAppBuilder();
+        final CK_ChessAppBuilder chessAppBuilder = new CK_ChessAppBuilder();
         chessAppBuilder.addChessDAO(new ChessDataAccessObject())
                 .addMoveView()
                 .addMoveUseCase();
