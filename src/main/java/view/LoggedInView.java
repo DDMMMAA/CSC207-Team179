@@ -14,6 +14,7 @@ import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInController;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
+import interface_adapter.query.QueryController;
 import interface_adapter.showProfile.ShowProfileController;
 
 /**
@@ -32,11 +33,13 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
     private final JButton startChess;
     private final JButton showProfile;
+    private final JButton showRankHistory;
     private final ShowProfileController showProfileController;
 
     public LoggedInView(ViewManagerModel viewManagerModel, LoggedInController loggedInController,
                         LoggedInViewModel loggedInViewModel,
-                        ShowProfileController showProfileController) {
+                        ShowProfileController showProfileController,
+                        QueryController queryController) {
         this.loggedInController = loggedInController;
         this.loggedInViewModel = loggedInViewModel;
         this.showProfileController = showProfileController;
@@ -54,6 +57,9 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
         showProfile = new JButton("Show Profile");
         buttons.add(showProfile);
+
+        showRankHistory = new JButton("Show Rank History");
+        buttons.add(showRankHistory);
 
         startChess = new JButton("Start Chess Game");
         buttons.add(startChess);
@@ -84,6 +90,20 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
                             final LoggedInState currentState = loggedInViewModel.getState();
 
                             showProfileController.execute(
+                                    currentState.getUsername()
+                            );
+                        }
+                    }
+                }
+        );
+
+        showRankHistory.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(showRankHistory)) {
+                            final LoggedInState currentState = loggedInViewModel.getState();
+
+                            queryController.execute(
                                     currentState.getUsername()
                             );
                         }
