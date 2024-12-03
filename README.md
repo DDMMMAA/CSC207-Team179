@@ -65,7 +65,7 @@ User can view their profile (Contain User name and rank point currently) after l
 
 Note: New user's rank point is set to ```0``` 
 
-![Alt Text](https://github.com/DDMMMAA/CSC207-Team179/blob/main/Show%20Profilegif.gif?raw=true)
+![Show Profile](https://github.com/DDMMMAA/CSC207-Team179/blob/main/Show%20Profilegif.gif?raw=true)
 
 
 ### <ins>Generate daily puzzle</ins>
