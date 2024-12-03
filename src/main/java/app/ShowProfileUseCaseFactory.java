@@ -32,8 +32,8 @@ public final class ShowProfileUseCaseFactory {
      *
      * @param viewManagerModel     the ViewManagerModel to inject into the LoggedInView
      * @param loggedInViewModel    the loggedInViewModel to inject into the LoggedInView
-     * @param signupViewModel
-     * @param showProfileViewModel
+     * @param signupViewModel      the signupViewModel
+     * @param showProfileViewModel the showProfileViewModel
      * @param userDataAccessObject the ChangePasswordUserDataAccessInterface to inject into the LoggedInView
      * @return the LoggedInView created for the provided input classes
      */
@@ -72,7 +72,7 @@ public final class ShowProfileUseCaseFactory {
     private static LoggedInController createLoggedInUseCase(
             ViewManagerModel viewManagerModel,
             LoggedInViewModel loggedInViewModel,
-            SignupViewModel signupViewModel){
+            SignupViewModel signupViewModel) {
 
         final LoggedInOutputBoundary loggedInOutputBoundary = new LoggedInPresenter(viewManagerModel, loggedInViewModel,
                 signupViewModel);
