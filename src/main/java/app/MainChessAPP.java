@@ -52,7 +52,7 @@ public class MainChessAPP {
         final LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel,
                 loggedInViewModel, userDataAccessObject, signupViewModel);
         final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
-                signupViewModel, showProfileViewModel, userDataAccessObject);
+                signupViewModel, showProfileViewModel, queryViewModel, userDataAccessObject, queryDataAccessObject);
         final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
         final QueryView queryView = new QueryView(viewManagerModel, queryViewModel);
 
