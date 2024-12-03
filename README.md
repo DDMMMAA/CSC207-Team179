@@ -77,7 +77,9 @@ and stores the set of solutions and the series of moves to create the puzzle boa
 
 This feature enables users to move a chess piece to a valid position during their turn. 
 Since moving a piece involves two steps, select and move, this usecase have two functionality.
-To Select: User clicks on the square containing the chess piece they want to select. The program then highlights all valid moves in yellow. 
+
+To Select: User clicks on the square containing the chess piece they want to select. The program then highlights all valid moves in yellow.
+
 To Move: If one piece is selected and the user clicks on one of the highlighted squares, the chess piece is moved to the target position.
 
 Note: Clicking an invalid move after select deselects the piece.
