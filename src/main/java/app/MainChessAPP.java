@@ -50,7 +50,6 @@ public class MainChessAPP {
         final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
                 signupViewModel, showProfileViewModel, userDataAccessObject);
         final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
-        //        final LoggedInView loggedInView = new LoggedInView(viewManagerModel, loggedInViewModel);
 
         views.add(signupView, signupView.getViewName());
         views.add(loginView, loginView.getViewName());
