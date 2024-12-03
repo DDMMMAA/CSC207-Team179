@@ -43,6 +43,7 @@ public class UserAppBuilder {
         this.viewManagerModel = new ViewManagerModel();
         this.userDataAccessObject = new UserDataAccessObject();
         this.queryDataAccessObject = new QueryDataAccessObject();
+
         new ViewManager(views, cardLayout, viewManagerModel);
     }
 
@@ -56,6 +57,7 @@ public class UserAppBuilder {
         this.signupViewModel = new SignupViewModel();
         this.showProfileViewModel = new ShowProfileViewModel();
         this.queryViewModel = new QueryViewModel();
+
         return this;
     }
 
