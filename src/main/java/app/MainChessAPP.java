@@ -13,7 +13,12 @@ import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.showProfile.ShowProfileViewModel;
 import interface_adapter.signup.SignupViewModel;
-import view.*;
+import view.ChessBoardView;
+import view.LoggedInView;
+import view.LoginView;
+import view.ProfileView;
+import view.SignupView;
+import view.ViewManager;
 
 /**
  * Main that activates login page.
