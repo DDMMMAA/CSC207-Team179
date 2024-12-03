@@ -45,7 +45,7 @@ public final class ShowProfileUseCaseFactory {
             ShowProfileUserDataAccessInterface userDataAccessObject) {
 
         final ShowProfileController showProfileController =
-                createShowProfileUseCase(viewManagerModel, loggedInViewModel,
+                createShowProfileUseCase(viewManagerModel,
                         showProfileViewModel, userDataAccessObject);
 
         final LoggedInController loggedInController = createLoggedInUseCase(viewManagerModel, loggedInViewModel,
@@ -56,7 +56,6 @@ public final class ShowProfileUseCaseFactory {
 
     private static ShowProfileController createShowProfileUseCase(
             ViewManagerModel viewManagerModel,
-            LoggedInViewModel loggedInViewModel,
             ShowProfileViewModel showProfileViewModel,
             ShowProfileUserDataAccessInterface userDataAccessObject) {
 
