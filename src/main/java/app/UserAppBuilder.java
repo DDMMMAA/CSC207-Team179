@@ -7,16 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import data_access.ChessDataAccessObject;
+import data_access.QueryDataAccessObject;
 import data_access.UserDataAccessObject;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.login.LoginViewModel;
+import interface_adapter.query.QueryViewModel;
 import interface_adapter.showProfile.ShowProfileViewModel;
 import interface_adapter.signup.SignupViewModel;
 import view.ChessBoardView;
 import view.LoggedInView;
 import view.LoginView;
 import view.ProfileView;
+import view.QueryView;
 import view.SignupView;
 import view.ViewManager;
 
@@ -26,17 +29,21 @@ public class UserAppBuilder {
     private ViewManagerModel viewManagerModel;
     private ChessBoardView chessBoardView;
     private UserDataAccessObject userDataAccessObject;
+    private QueryDataAccessObject queryDataAccessObject;
 
     private LoginViewModel loginViewModel;
     private LoggedInViewModel loggedInViewModel;
     private SignupViewModel signupViewModel;
     private ShowProfileViewModel showProfileViewModel;
+    private QueryViewModel queryViewModel;
 
     public UserAppBuilder() {
         this.cardLayout = new CardLayout();
         this.views = new JPanel(cardLayout);
         this.viewManagerModel = new ViewManagerModel();
         this.userDataAccessObject = new UserDataAccessObject();
+        this.queryDataAccessObject = new QueryDataAccessObject();
+
         new ViewManager(views, cardLayout, viewManagerModel);
     }
 
@@ -49,6 +56,8 @@ public class UserAppBuilder {
         this.loggedInViewModel = new LoggedInViewModel();
         this.signupViewModel = new SignupViewModel();
         this.showProfileViewModel = new ShowProfileViewModel();
+        this.queryViewModel = new QueryViewModel();
+
         return this;
     }
 
@@ -62,13 +71,15 @@ public class UserAppBuilder {
         final LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, loggedInViewModel,
                 userDataAccessObject, signupViewModel);
         final LoggedInView loggedInView = ShowProfileUseCaseFactory.create(viewManagerModel, loggedInViewModel,
-                signupViewModel, showProfileViewModel, userDataAccessObject);
+            signupViewModel, showProfileViewModel, queryViewModel, userDataAccessObject, queryDataAccessObject);
         final ProfileView profileView = new ProfileView(viewManagerModel, showProfileViewModel);
+        final QueryView queryView = new QueryView(viewManagerModel, queryViewModel);
 
         views.add(signupView, signupView.getViewName());
         views.add(loginView, loginView.getViewName());
         views.add(loggedInView, loggedInView.getViewName());
         views.add(profileView, profileView.getViewName());
+        views.add(queryView, queryView.getViewName());
 
         return this;
     }
