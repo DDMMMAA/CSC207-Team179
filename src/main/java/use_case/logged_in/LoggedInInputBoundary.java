@@ -5,7 +5,7 @@ package use_case.logged_in;
  */
 public interface LoggedInInputBoundary {
     /**
-     * Executes the switch to login view use case.
+     * Executes the switch to signup view use case.
      */
     void switchToSignUpView();
 }

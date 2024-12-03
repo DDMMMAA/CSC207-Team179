@@ -9,9 +9,15 @@ public interface LoginOutputBoundary {
      * @param outputData the output data
      */
     void prepareSuccessView(LoginOutputData outputData);
+
     /**
      * Prepares the failure view for the Login Use Case.
      * @param errorMessage the explanation of the failure
      */
     void prepareFailView(String errorMessage);
+
+    /**
+     * Switches to the Signup View.
+     */
+    void switchToSignUpView();
 }

@@ -14,7 +14,7 @@ public class LoggedInController {
     }
 
     /**
-     * Executes the "switch to LoginView" Use Case.
+     * Executes the "switch to SignUpView" Use Case.
      */
     public void switchToSignUpView() {
         userLoggedInUseCaseInteractor.switchToSignUpView();
