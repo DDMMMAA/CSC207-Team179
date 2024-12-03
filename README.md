@@ -61,7 +61,7 @@ To Login: Click ```Login``` to navigate to a login page, enter username and pass
 
 ### <ins>Show Profile</ins>
 
-User can view there profile (Contain User name and rank point currently) after login by click ```Show Profile``` after login.
+User can view their profile (Contain User name and rank point currently) after login by click ```Show Profile``` after login.
 
 Note: New user's rank point is set to ```0``` 
 
@@ -70,7 +70,8 @@ Note: New user's rank point is set to ```0```
 
 ### <ins>Generate daily puzzle</ins>
 
-// TODO
+This requests the algebraic chess notation for the current daily puzzle in the Lichess API
+and stores the set of solutions and the series of moves to create the puzzle board.
 
 ### <ins>Step by step move</ins>
 
