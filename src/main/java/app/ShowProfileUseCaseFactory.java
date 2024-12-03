@@ -11,13 +11,13 @@ import interface_adapter.showProfile.ShowProfileController;
 import interface_adapter.showProfile.ShowProfilePresenter;
 import interface_adapter.showProfile.ShowProfileViewModel;
 import interface_adapter.signup.SignupViewModel;
+import use_case.logged_in.LoggedInInputBoundary;
+import use_case.logged_in.LoggedInInteractor;
+import use_case.logged_in.LoggedInOutputBoundary;
 import use_case.query.QueryDataAccessInterface;
 import use_case.query.QueryInputBoundary;
 import use_case.query.QueryInteractor;
 import use_case.query.QueryOutputBoundary;
-import use_case.logged_in.LoggedInInputBoundary;
-import use_case.logged_in.LoggedInInteractor;
-import use_case.logged_in.LoggedInOutputBoundary;
 import use_case.showProfile.ShowProfileInputBoundary;
 import use_case.showProfile.ShowProfileInteractor;
 import use_case.showProfile.ShowProfileOutputBoundary;
@@ -56,7 +56,7 @@ public final class ShowProfileUseCaseFactory {
             QueryDataAccessInterface queryDataAccessObject) {
 
         final ShowProfileController showProfileController =
-                createShowProfileUseCase(viewManagerModel, loggedInViewModel,
+                createShowProfileUseCase(viewManagerModel,
                         showProfileViewModel, userDataAccessObject);
 
         final QueryOutputBoundary queryOutputBoundary = new QueryPresenter(queryViewModel, viewManagerModel);
@@ -66,13 +66,11 @@ public final class ShowProfileUseCaseFactory {
         final LoggedInController loggedInController = createLoggedInUseCase(viewManagerModel, loggedInViewModel,
                 signupViewModel);
 
-        return new LoggedInView(viewManagerModel, loggedInController, loggedInViewModel,
-                showProfileController, queryController);
+        return new LoggedInView(viewManagerModel, loggedInController, loggedInViewModel, showProfileController);
     }
 
     private static ShowProfileController createShowProfileUseCase(
             ViewManagerModel viewManagerModel,
-            LoggedInViewModel loggedInViewModel,
             ShowProfileViewModel showProfileViewModel,
             ShowProfileUserDataAccessInterface userDataAccessObject) {
 
