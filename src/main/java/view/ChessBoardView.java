@@ -79,7 +79,8 @@ public class ChessBoardView extends JPanel implements ActionListener, PropertyCh
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
-        String[] parts = e.getActionCommand().split(",");  // Split the string at the comma
+        // Split the string at the comma
+        String[] parts = e.getActionCommand().split(",");
         // Convert the parts to integers
         int x = Integer.parseInt(parts[0]);
         int y = Integer.parseInt(parts[1]);

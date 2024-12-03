@@ -13,25 +13,40 @@ public class Rook extends ChessPiece {
      * Return valid moves.
      */
 
-    public ArrayList<int[]> getValidMoves() {
+    @Override
+    public <T> T getValidMoves() {
+        final ArrayList<ArrayList<int[]>> validMoves = new ArrayList<>();
 
-        ArrayList<int[]> validMoves = new ArrayList<>();
+        ArrayList<int[]> upMoves = new ArrayList<>();
+        ArrayList<int[]> downMoves = new ArrayList<>();
+        ArrayList<int[]> leftMoves = new ArrayList<>();
+        ArrayList<int[]> rightMoves = new ArrayList<>();
+
         final int x = this.getPosition()[0];
         final int y = this.getPosition()[1];
 
         for (int i = y - 1; i >= 0; i--) {
-            validMoves.add(new int[] {x, i}); // Move upwards in the column
+            upMoves.add(new int[] {x, i});
         }
+
         for (int i = y + 1; i < 8; i++) {
-            validMoves.add(new int[] {x, i}); // Move downwards in the column
+            downMoves.add(new int[] {x, i});
         }
 
         for (int i = x - 1; i >= 0; i--) {
-            validMoves.add(new int[] {i, y}); // Move left in the row
+            leftMoves.add(new int[] {i, y});
         }
+
         for (int i = x + 1; i < 8; i++) {
-            validMoves.add(new int[] {i, y}); // Move right in the row
+            rightMoves.add(new int[] {i, y});
         }
-        return validMoves;
+
+        validMoves.add(upMoves);
+        validMoves.add(downMoves);
+        validMoves.add(leftMoves);
+        validMoves.add(rightMoves);
+
+        return (T) validMoves;
     }
+
 }

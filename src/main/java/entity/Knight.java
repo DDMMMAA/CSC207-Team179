@@ -16,7 +16,8 @@ public class Knight extends ChessPiece {
      *
      * @return A list of int arrays, each representing a valid move [newX, newY].
      */
-    public ArrayList<int[]> getValidMoves() {
+    @Override
+    public <T> T getValidMoves() {
         final ArrayList<int[]> validMoves = new ArrayList<>();
         final int x = this.getPosition()[0];
         final int y = this.getPosition()[1];
@@ -35,6 +36,6 @@ public class Knight extends ChessPiece {
             }
         }
 
-        return validMoves;
+        return (T) validMoves;
     }
 }
