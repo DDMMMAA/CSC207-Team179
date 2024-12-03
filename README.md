@@ -14,14 +14,17 @@ Yann Chi - YannChi22
 
 ## Table of content
 
-+ [Project Domain](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#project-domain)
-
-+ [Instructions](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#instructions)
++ [About This Project](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#about-this-project)
++ [Installation](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#installation)
++ [Use Case (Feature)](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#use-cases-features)
     + [Signup & Login](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#signup--login)
     + [Show Profile](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#show-profile)
     + [Generate Daily Puzzle](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#generate-daily-puzzle)
     + [Step by Step Move](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#generate-daily-puzzle)
-+ [Use Cases](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#use-cases)
++ [Usage Guide](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#usage-guide)
++ [Feedback](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#feedback)
++ [Contribute to this project](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#this-project-is-close-for-contributions)
++ [User Stories](https://github.com/DDMMMAA/CSC207-Team179?tab=readme-ov-file#user-stories)
 
 
 ## About this project
