@@ -23,7 +23,7 @@ import view.ViewManager;
 /**
  * Main that activates login page.
  */
-public class MainChessAPP {
+public class MainChessApp {
 
     /**
      * The main method for starting the program with an external database used to persist user data.
