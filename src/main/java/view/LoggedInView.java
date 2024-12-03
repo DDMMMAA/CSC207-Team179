@@ -14,7 +14,6 @@ import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInController;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
-import interface_adapter.query.QueryController;
 import interface_adapter.showProfile.ShowProfileController;
 
 /**
@@ -33,14 +32,12 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
 
     private final JButton startChess;
     private final JButton showProfile;
-    private final JButton showRankHistory;
     private final ShowProfileController showProfileController;
 
-    public LoggedInView(ViewManagerModel viewManagerModel, LoggedInController loggedInController, LoggedInViewModel loggedInViewModel,
-                        ShowProfileController showProfileController, QueryController queryController) {
-
+    public LoggedInView(ViewManagerModel viewManagerModel, LoggedInController loggedInController,
+                        LoggedInViewModel loggedInViewModel,
+                        ShowProfileController showProfileController) {
         this.loggedInController = loggedInController;
-
         this.loggedInViewModel = loggedInViewModel;
         this.showProfileController = showProfileController;
         this.loggedInViewModel.addPropertyChangeListener(this);
@@ -55,19 +52,11 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
         logOut = new JButton("Log Out");
         buttons.add(logOut);
 
-        showRankHistory = new JButton("Show Rank History");
-
         showProfile = new JButton("Show Profile");
         buttons.add(showProfile);
 
         startChess = new JButton("Start Chess Game");
         buttons.add(startChess);
-
-        buttons.add(showProfile);
-        buttons.add(showRankHistory);
-
-
-//        logOut.addActionListener(this);
 
         logOut.addActionListener(
                 new ActionListener() {
@@ -95,20 +84,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
                             final LoggedInState currentState = loggedInViewModel.getState();
 
                             showProfileController.execute(
-                                    currentState.getUsername()
-                            );
-                        }
-                    }
-                }
-        );
-
-        showRankHistory.addActionListener(
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(showRankHistory)) {
-                            final LoggedInState currentState = loggedInViewModel.getState();
-
-                            queryController.execute(
                                     currentState.getUsername()
                             );
                         }
